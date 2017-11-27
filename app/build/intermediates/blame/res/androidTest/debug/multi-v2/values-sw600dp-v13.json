@@ -1,10 +1,20 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
+            "outputFile": "C:\\Users\\Bor Praznik\\StudioProjects\\Bit-Trex\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/Fynov/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/fb6960cde1477f07228001c17fe84f2e/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\Bor Praznik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\91bc6c8877169e25e5008aa5562a79ba\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,124,193,263,337,413,472,543",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "119,188,258,332,408,467,538,606"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Bor Praznik\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\87ae3b4cf1b5f6ffdb24fdb9b0a97d1f\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -20,16 +30,6 @@
                         "endLines": "10,11,12,13,14,15,16,17,18,22",
                         "endColumns": "59,69,70,71,57,57,105,63,62,12",
                         "endOffsets": "666,736,807,879,937,995,1101,1165,1228,1410"
-                    }
-                },
-                {
-                    "source": "/Users/Fynov/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/7a3f31c560ed306b24d9a5a38d71958a/res/values-sw600dp-v13/values-sw600dp-v13.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,124,193,263,337,413,472,543",
-                        "endColumns": "68,68,69,73,75,58,70,67",
-                        "endOffsets": "119,188,258,332,408,467,538,606"
                     }
                 }
             ]

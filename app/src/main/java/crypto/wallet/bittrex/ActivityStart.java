@@ -64,6 +64,7 @@ public class ActivityStart extends AppCompatActivity
     private ConstraintLayout mConstraintLayout;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     public TextView balanceAll;
+    public TextView tvFiat;
     private JSONTask mTask;
     private AdView mAdView;
 
@@ -135,6 +136,8 @@ public class ActivityStart extends AppCompatActivity
         });
 
         balanceAll = (TextView)findViewById(R.id.balanceAll);
+        tvFiat = (TextView)findViewById(R.id.fiatView);
+
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -403,6 +406,8 @@ public class ActivityStart extends AppCompatActivity
                     Log.d("MyApp","Error");
                 }
 
+
+
                 //GET BTC VALUE
                 Double cena = 0.00;
                 for(Currency m : currencyList)
@@ -428,9 +433,6 @@ public class ActivityStart extends AppCompatActivity
                         }
                         catch(Exception e){
                         }
-
-                        //do tu? :D
-                        //m.getMovie()-BTC
                     }
                     m.setLastPrice(cena);
                     m.setValueBTC(round(cena*m.getQuantity(), 7));
@@ -466,6 +468,7 @@ public class ActivityStart extends AppCompatActivity
             app.getAll().dumpCurrency();
             fiatVal =0;
 
+
             if(result != null) {
 
                 SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
@@ -499,7 +502,9 @@ public class ActivityStart extends AppCompatActivity
 
 
                 DecimalFormat df = new DecimalFormat("0.00000000");
-                balanceAll.setText(df.format(app.getAll().allBalance) + "Ƀ ≈ " + compound);
+                balanceAll.setText(df.format(app.getAll().allBalance) + "Ƀ");
+                tvFiat.setText(" ≈ " + compound);
+
 
                 mAdapter.notifyDataSetChanged();
             } else {

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.corycharlton.bittrexapi:bittrexapi-1.0.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bittrexapi-1.0.0.aar/86f72997b3b00b714a37cc248959f193/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bittrexapi-1.0.0.aar/86f72997b3b00b714a37cc248959f193/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bittrexapi-1.0.0.aar/2c5d170c512d59f9a6c1277a43be4731/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bittrexapi-1.0.0.aar/2c5d170c512d59f9a6c1277a43be4731/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

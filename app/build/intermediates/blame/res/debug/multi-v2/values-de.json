@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-de/values-de.xml",
+            "outputFile": "C:\\Users\\Bor Praznik\\StudioProjects\\Bit-Trex\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-de\\values-de.xml",
             "map": [
                 {
-                    "source": "/Users/Fynov/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/7a3f31c560ed306b24d9a5a38d71958a/res/values-de/values-de.xml",
+                    "source": "C:\\Users\\Bor Praznik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\91bc6c8877169e25e5008aa5562a79ba\\res\\values-de\\values-de.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Fynov/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/9b85e5091eaba83bf8cfb16f925cac97/res/values-de/values.xml",
+                    "source": "C:\\Users\\Bor Praznik\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\52812c131bc030d5ceb009707208d1f0\\res\\values-de\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Fynov/.gradle/caches/transforms-1/files-1.1/play-services-ads-11.6.0.aar/daa7ecf4a6a658f2525f3e342d4aad7d/res/values-de/values.xml",
+                    "source": "C:\\Users\\Bor Praznik\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-ads-11.6.0.aar\\a729ee9c7f6120182ba9d2461a2a2f82\\res\\values-de\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10",
                         "startColumns": "0,0,0,0,0,0,0",

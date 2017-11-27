@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml",
+            "outputFile": "C:\\Users\\Bor Praznik\\StudioProjects\\Bit-Trex\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
             "map": [
                 {
-                    "source": "/Users/Fynov/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/7a3f31c560ed306b24d9a5a38d71958a/res/values-v14/values-v14.xml",
+                    "source": "C:\\Users\\Bor Praznik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\91bc6c8877169e25e5008aa5562a79ba\\res\\values-v14\\values-v14.xml",
                     "from": {
                         "startLines": "2,7,8,9,15",
                         "startColumns": "4,4,4,4,4",

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/src/debug/shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\Bor Praznik\StudioProjects\Bit-Trex\app\src\main\shaders"/></dataSet><dataSet config="debug"><source path="C:\Users\Bor Praznik\StudioProjects\Bit-Trex\app\src\debug\shaders"/></dataSet></merger>

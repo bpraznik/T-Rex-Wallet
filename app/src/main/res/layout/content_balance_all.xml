@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/balanceAll"
-        android:layout_width="251dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
@@ -28,5 +28,13 @@
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fiatView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/balanceAll"
+        app:layout_constraintStart_toEndOf="@+id/balanceAll" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
+            "outputFile": "C:\\Users\\Bor Praznik\\StudioProjects\\Bit-Trex\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "/Users/Fynov/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.1.aar/f547504cf2a9e39ae7f868ec015c1ae8/res/values-v23/values-v23.xml",
+                    "source": "C:\\Users\\Bor Praznik\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.1.aar\\ef08ce465e8218d4ed7c300d4bb62c3c\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Fynov/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/7a3f31c560ed306b24d9a5a38d71958a/res/values-v23/values-v23.xml",
+                    "source": "C:\\Users\\Bor Praznik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\91bc6c8877169e25e5008aa5562a79ba\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
