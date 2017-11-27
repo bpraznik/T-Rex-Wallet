@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "214649805463",
+    "firebase_url": "https://bittrex-dc366.firebaseio.com",
+    "project_id": "bittrex-dc366",
+    "storage_bucket": "bittrex-dc366.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214649805463:android:787451aff1df8635",
+        "android_client_info": {
+          "package_name": "crypto.wallet.bittrex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "214649805463-2pfd5398fb7lf706epafka8p0grb6p59.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "crypto.wallet.bittrex",
+            "certificate_hash": "56d18103775594f14e69f2f98d6bce378c8da32c"
+          }
+        },
+        {
+          "client_id": "214649805463-mgcu8b6kv9ofi4et8kopgb5crrp7v51t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD__vpREzQ2_wWg52YPVCu0hjXXh9vfZIM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "214649805463-mgcu8b6kv9ofi4et8kopgb5crrp7v51t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

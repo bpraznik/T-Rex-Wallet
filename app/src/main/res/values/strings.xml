@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">T-rex Wallet</string>
+    <string name="title_activity_main">T-rex Wallet</string>
+    <string name="action_settings">T-rex Settings</string>
+    <string name="title_activity_start">T-rex</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_orders">Your order history</string>
+    <string name="app_version">T-rex Wallet version 1.0</string>
+    <string name="copiright">© 2017 BP Devs</string>
+
+    <string name="addAppID">ca-app-pub-6319696292223693~5728720128</string>
+
+    <string name="StartPageBottomBanner">ca-app-pub-6319696292223693/3318179207</string>
+    <string name="CurrencyPageBottomBanner">ca-app-pub-6319696292223693/7037932368</string>
+
+
+    <!--
+    <string name="addAppID">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="addBannerID">ca-app-pub-3940256099942544/6300978111</string>
+      -->
+</resources>

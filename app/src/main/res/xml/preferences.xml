@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <PreferenceCategory
+        android:title="API Key"
+        android:key="api_key">
+
+
+        <EditTextPreference
+            android:key="key"
+            android:title="Public key"
+            android:summary="Enter Your Public Key"
+            android:dialogTitle="Public Key"
+            android:dialogMessage="Enter Your Public Key"
+            android:defaultValue=""
+            android:inputType="textCapWords"/>
+
+        <EditTextPreference
+            android:key="secret"
+            android:title="Secret Key"
+            android:summary="Enter Your Secret Key"
+            android:dialogTitle="Enter Your Secret Key"
+            android:dialogMessage="Enter Your Secret Key"
+            android:defaultValue=""
+            android:inputType="textCapWords"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Display"
+        android:key="display">
+        <ListPreference
+            android:key="fiatCurrency"
+            android:title="Display Currency"
+            android:summary="Pick the currency to display."
+            android:defaultValue="0"
+            android:entries="@array/currencyFiat"
+            android:entryValues="@array/currencyFiatValues"/>
+
+        <CheckBoxPreference
+            android:key="hideSmall"
+            android:title="Hide low quantity currencies."
+            android:defaultValue="false"/>
+
+        <EditTextPreference
+            android:key="hideNumber"
+            android:dependency="hideSmall"
+            android:title="Hide values under:"
+            android:dialogMessage="Enter minimum quantity of currency to display"
+            android:defaultValue="0.0000001"
+            android:inputType="number"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Features"
+        android:key="display">
+        <CheckBoxPreference
+            android:key="hideBeta"
+            android:title="Show estimated profit (beta)"
+            android:defaultValue="true"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

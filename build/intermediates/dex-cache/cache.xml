@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/9b85e5091eaba83bf8cfb16f925cac97/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="869a1d15fa9d8e8aa36587b042f553c1baea46bc">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/23.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/71e9e7079bb33c96a8b259391c42607c/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="da443aff9cd3c2cd75b957e0547e1ca2c4f30308">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/fb6960cde1477f07228001c17fe84f2e/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/e604464551e8684cb0fcd2b3c8df63fd/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.0.0/a2d487452376193fc8c103dd2b9bd5f2b1b44563/common-1.0.0.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a2d487452376193fc8c103dd2b9bd5f2b1b44563">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/42.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/27.0.1/287742f1c6cea6d9126670e9f031890b0462362a/support-annotations-27.0.1.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="287742f1c6cea6d9126670e9f031890b0462362a">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/30.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/7a3f31c560ed306b24d9a5a38d71958a/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f428e2fbc9ed0b297e3a3f420e51e6982f66822d">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/8953f7cd82efa67e1c27238342bf3e9c/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="233f60a165ae622c8b36731502ebbda0f65e1930">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/28.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/ab9527c1f7659193b5d7037435b6846c/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6f4138a4e065826cb044d49faea4cfd7191773d1">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/16.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/146ffdbc80b579e40bec110c5aa5076b/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="40392f30a601db5675cdf18192aab013d6fee6ec">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/15.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/c93d99db6a32f70ce24ee81863569c5e/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="508f50705b4fde51a16259f29c854201a3044516">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/26.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/ab61495910eefdb835a95003c7edac1c/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2442771a5590dd4eb4bce00c2e9dca9e22e4c963">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/29.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/e297839c90f0ba773548c8c18b2a84ea/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/lib_data/build/libs/lib_data.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f584ce5749b2495df7637d90ba0cfd0117652afd">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/43.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.1/2a8e0aa38a2e21cb39e2f5a7d6704cbdc941da0/gson-2.8.1.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="02a8e0aa38a2e21cb39e2f5a7d6704cbdc941da0">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/bittrexapi-1.0.0.aar/86f72997b3b00b714a37cc248959f193/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="595af9032bcf1c0c5342a390efdc081246044cab">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.0.0/e414a4cb28434e25c4f6aa71426eb20cf4874ae9/common-1.0.0.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e414a4cb28434e25c4f6aa71426eb20cf4874ae9">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/41.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/af8c83991fb2f07a1c84f25a71cda0b7/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7efef32744ca4a436492d5cf28c08698cc2af256">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/25.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/6b6b508b83a3ed12ca0974ccf3367fc7/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e9b8fd995f9c6c2caeb49827f0b52e0e8cc621e0">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/13.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/7739eae85a5f59b2aa6ab945a69a49bf/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f97cf85b0fe70d37a705111dafa6b1b418ea1650">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/27.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/12a0e8b1159917f6cc7850ad9690ede5/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/24.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/play-services-ads-11.6.0.aar/daa7ecf4a6a658f2525f3e342d4aad7d/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6744a722b558c994eb23504c7871807f3fa35533">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-11.6.0.aar/ab5c97e7eb9f6e6bcd46993e9683bb34/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b1a9377553f36949950d90d77bc3c64f442cd291">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.0.aar/f7ea1d3b3d2aaec4880de26fca1846d5/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1cde19cbf9be88547ab4b7f03668eac5d91bd611">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/21.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.0.aar/7bbbcbbe924a62d67b561fde84b2c56f/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="729a6a1975c19d7461378172c7932f5c57f1c3fe">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/22.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/play-services-gass-11.6.0.aar/3a4a0324101dc8b2d8640d6c657b5289/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2b0cb1d3587fcae786438f623e9131d4e3b9d35b">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/18.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/ceab18372d7c3039854f62595fbff864/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d6399340139f67ce4faba06e97f256ef0d6817c0">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/75cad54205cfc26782112329b35bc768/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b62fdc4cfef174c1e456014195c83fa7de7dc041">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/40.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/9772b5bd682a1097842872f3f13b7781/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Fynov/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.1.aar/f547504cf2a9e39ae7f868ec015c1ae8/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="26.0.2"
+        sha1="925879273e627f34059466359ba6789cf61889e2">
+        <dex dex="/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/preDex/release/10.jar" />
+    </item>
+
+</items>
