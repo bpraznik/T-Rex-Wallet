@@ -21,6 +21,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,8 +66,13 @@ public class ActivityStart extends AppCompatActivity
     private ConstraintLayout mConstraintLayout;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     public TextView balanceAll;
+    public TextView tvBallanceText;
+    public TextView tvWalletText;
+    public View inclWallet;
+    public View inclBalance;
     private JSONTask mTask;
     private AdView mAdView;
+    private ProgressBar pbLoader;
 
 
     static final Integer READ_EXST = 0x4;
@@ -76,6 +83,7 @@ public class ActivityStart extends AppCompatActivity
     double fiatVal = 0;
     public boolean refreshing = false;
     public boolean canceled = false;
+    public double btc1val;
 
     public String link = "";
     public String hash = "";
@@ -101,6 +109,12 @@ public class ActivityStart extends AppCompatActivity
         setContentView(R.layout.activity_start);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        pbLoader = findViewById(R.id.progressBar2);
+        inclWallet = findViewById(R.id.inclWallet);
+        inclBalance = findViewById(R.id.inclBalance);
+
+        pbLoader.setVisibility(View.VISIBLE);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -135,6 +149,9 @@ public class ActivityStart extends AppCompatActivity
         });
 
         balanceAll = (TextView)findViewById(R.id.balanceAll);
+        tvBallanceText = findViewById(R.id.tvBallanceText);
+        tvWalletText = findViewById(R.id.tvWalletText);
+
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -200,17 +217,16 @@ public class ActivityStart extends AppCompatActivity
 
         if (id == R.id.nav_wallet) {
 
-        }/* else if (id == R.id.nav_orders) {
-
-            startActivity(new Intent(this,ActivityOrders.class));
-        }*/ else if (id == R.id.nav_settings) {
+        } else if (id == R.id.nav_market) {
+            startActivity(new Intent(this,ActivityMarket.class));
+            finish();
+        } else if (id == R.id.nav_settings) {
             startActivity(new Intent(this,ActivityMySettings.class));
 
         }/* else if (id == R.id.nav_suggest) {
 
         }*/ else if (id == R.id.nav_about) {
             startActivity(new Intent(this,ActivityAbout.class));
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -397,12 +413,77 @@ public class ActivityStart extends AppCompatActivity
                     else
                         fiat =  jsonObj.getString("price_eur");
 
+                    btc1val = fiatVal;
+
                     app.getAll().fiatVal = Double.valueOf(fiat);
                 }
                 catch(Exception e){
                     Log.d("MyApp","Error");
                 }
 
+                for(Currency c : currencyList)
+                {
+                        //JSON CENA FFS...
+                        String str="https://min-api.cryptocompare.com/data/histohour?fsym=" + c.getName() + "&tsym=BTC&limit=1&aggregate=3&e=BitTrex";
+                        try {
+                            Log.d("Error:", "1");
+                            URL url3 = new URL(str);
+                            URLConnection urlc = url3.openConnection();
+                            BufferedReader bfr = new BufferedReader(new InputStreamReader(urlc.getInputStream()));
+                            String line3;
+                            Log.d("Error:", "2");
+                            while ((line3 = bfr.readLine()) != null) {
+                                Log.d("Error:", "3");
+                                JSONObject JSo = new JSONObject(line3);
+                                JSONArray JSarr = JSo.getJSONArray("Data");
+                                Log.d("ErrJS: ", JSarr.toString());
+                                JSONObject jo = JSarr.getJSONObject(0);
+                                c.setHigh1(jo.getDouble("high"));
+                                c.setLow1(jo.getDouble("low"));
+                            }
+                        }
+                        catch(Exception e){
+                        }
+                }
+
+                //GET HIGH/LOW
+
+                for(Currency c : currencyList)
+                {
+                    if(c.getName().equals("BTC"))
+                    {
+                        c.setLastPrice(1.0);
+                    }
+                    else
+                    {
+                        //JSON CENA FFS...
+                        String str="https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-"+c.getName();
+                        try {
+                            Log.d("Error:", "1");
+                            URL url3 = new URL(str);
+                            URLConnection urlc = url3.openConnection();
+                            BufferedReader bfr = new BufferedReader(new InputStreamReader(urlc.getInputStream()));
+                            String line3;
+                            Log.d("Error:", "2");
+                            while ((line3 = bfr.readLine()) != null) {
+                                Log.d("Error:", "3");
+                                JSONObject JSo = new JSONObject(line3);
+                                JSONArray JSarr = JSo.getJSONArray("result");
+                                Log.d("ErrJS: ", JSarr.toString());
+                                JSONObject jo = JSarr.getJSONObject(0);
+                                c.setLastPrice(jo.getDouble("Last"));
+                                c.setLow24(jo.getDouble("Low"));
+                                c.setHigh24(jo.getDouble("High"));
+                                c.setValueBTC(round(c.getLastPrice()*c.getQuantity(), 7));
+                                app.getAll().allBalance += (c.getLastPrice()*c.getQuantity());
+                            }
+                        }
+                        catch(Exception e){
+                        }
+                    }
+                }
+
+                /*
                 //GET BTC VALUE
                 Double cena = 0.00;
                 for(Currency m : currencyList)
@@ -435,7 +516,7 @@ public class ActivityStart extends AppCompatActivity
                     m.setLastPrice(cena);
                     m.setValueBTC(round(cena*m.getQuantity(), 7));
                     app.getAll().allBalance += (cena*m.getQuantity());
-                }
+                }*/
                 return currencyList;
 
             } catch (MalformedURLException e) {
@@ -520,7 +601,12 @@ public class ActivityStart extends AppCompatActivity
     }
 
     public void loadingDone(){
+        pbLoader.setVisibility(View.INVISIBLE);
         mSwipeRefreshLayout.setRefreshing(false);
+        tvBallanceText.setVisibility(View.VISIBLE);
+        tvWalletText.setVisibility(View.VISIBLE);
+        inclWallet.setVisibility(View.VISIBLE);
+        inclBalance.setVisibility(View.VISIBLE);
         refreshing = false;
     }
 }
