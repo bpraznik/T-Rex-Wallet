@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "C:\\Users\\Bor\\StudioProjects\\Bit-Trex\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/Fynov/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/7739eae85a5f59b2aa6ab945a69a49bf/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\bf0141cec6aca8fc1e745e2f01ebc3a4\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Fynov/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/7a3f31c560ed306b24d9a5a38d71958a/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\fcee111c66c8ed4b6cd772c893c86c4a\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",

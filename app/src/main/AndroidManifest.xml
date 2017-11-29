@@ -22,7 +22,7 @@
     <uses-feature android:name="android.hardware.sensor.accelerometer" />
 
     <application
-        android:name="crypto.wallet.bittrex.ApplicationMy"
+        android:name=".ApplicationMy"
         android:allowBackup="true"
         android:icon="@drawable/iconapp"
         android:label="@string/app_name"
@@ -30,25 +30,32 @@
         android:roundIcon="@drawable/iconapp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="crypto.wallet.bittrex.ActivityCurrency" />
-        <activity
-            android:name="crypto.wallet.bittrex.ActivityMySettings"
-            android:label="@string/action_settings" />
-        <activity
-            android:name="crypto.wallet.bittrex.ActivityStart"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+
+        <activity android:name=".ActivitySplash" android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="crypto.wallet.bittrex.ActivityAbout" />
+
         <activity
-            android:name="crypto.wallet.bittrex.ActivityOrders"
+            android:name=".ActivityCurrency" />
+
+        <activity
+            android:name=".ActivityMySettings"
+            android:label="@string/action_settings" />
+
+        <activity
+            android:name=".ActivityStart"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ActivityAbout" />
+        <activity
+            android:name=".ActivityOrders"
             android:label="@string/title_activity_orders"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
