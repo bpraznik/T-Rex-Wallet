@@ -1,12 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-61:12
-INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-61:12
-INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-61:12
-INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-61:12
+ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-63:12
 MERGED from [com.android.support:design:25.3.1] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\design-25.3.1.aar\da9cb5fda4fa65f3607615c31229b42c\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\fcee111c66c8ed4b6cd772c893c86c4a\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\f0fa6df7b1e5dcfe9a0e214818f48c51\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\755d8adbec15938b2f00d45c49be46f1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-ads:11.6.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\firebase-ads-11.6.0.aar\a3cd8fc182dc4bdf5d8c80a7c4aed47d\AndroidManifest.xml:2:1-6:12
 MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-25.3.1.aar\5e5a3f85453db4860d9657aa0b1d5be1\AndroidManifest.xml:17:1-26:12
 MERGED from [com.corycharlton.bittrexapi:bittrexapi:1.0.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\bittrexapi-1.0.0.aar\cce280bfdeee94b7361fa4a39565b91d\AndroidManifest.xml:2:1-19:12
@@ -40,20 +40,20 @@ MERGED from [com.google.firebase:firebase-analytics-impl-license:11.6.0] C:\User
 MERGED from [com.google.android.gms:play-services-tasks-license:11.6.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.6.0.aar\f0497a106fbf302731dd252d2759c131\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.firebase:firebase-iid-license:11.6.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\firebase-iid-license-11.6.0.aar\85aaad389f03cce2325456085cf9e102\AndroidManifest.xml:2:1-6:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\49edd0f278247aac3901a4cc694fb77a\AndroidManifest.xml:17:1-30:12
-INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-61:12
-INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-61:12
-INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-63:12
 	package
 		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:3:5-36
 		INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-61:12
+		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-63:12
 		INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-61:12
+		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:1-63:12
 		INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:2:11-69
@@ -108,13 +108,13 @@ ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml
 	android:name
 		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:22:19-71
 application
-ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:24:5-59:19
+ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:24:5-61:19
 MERGED from [com.android.support:design:25.3.1] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\design-25.3.1.aar\da9cb5fda4fa65f3607615c31229b42c\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:design:25.3.1] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\design-25.3.1.aar\da9cb5fda4fa65f3607615c31229b42c\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\fcee111c66c8ed4b6cd772c893c86c4a\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\fcee111c66c8ed4b6cd772c893c86c4a\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\f0fa6df7b1e5dcfe9a0e214818f48c51\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\f0fa6df7b1e5dcfe9a0e214818f48c51\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\755d8adbec15938b2f00d45c49be46f1\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\755d8adbec15938b2f00d45c49be46f1\AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-ads:11.6.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\firebase-ads-11.6.0.aar\a3cd8fc182dc4bdf5d8c80a7c4aed47d\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-ads:11.6.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\firebase-ads-11.6.0.aar\a3cd8fc182dc4bdf5d8c80a7c4aed47d\AndroidManifest.xml:5:5-20
 MERGED from [com.corycharlton.bittrexapi:bittrexapi:1.0.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\bittrexapi-1.0.0.aar\cce280bfdeee94b7361fa4a39565b91d\AndroidManifest.xml:13:5-17:19
@@ -218,33 +218,37 @@ ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml
 	android:name
 		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:44:13-47
 activity#crypto.wallet.bittrex.ActivityStart
-ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:46:9-49:59
+ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:46:9-50:55
 	android:label
 		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:48:13-45
+	android:windowSoftInputMode
+		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:50:13-52
 	android:theme
 		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:49:13-56
 	android:name
 		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:47:13-42
 activity#crypto.wallet.bittrex.ActivityAbout
-ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:50:9-51
+ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:51:9-51
 	android:name
-		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:50:19-48
+		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:51:19-48
 activity#crypto.wallet.bittrex.ActivityOrders
-ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:51:9-54:59
+ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:52:9-56:55
 	android:label
-		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:53:13-58
+		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:54:13-58
+	android:windowSoftInputMode
+		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:56:13-52
 	android:theme
-		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:54:13-56
+		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:55:13-56
 	android:name
-		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:52:13-43
+		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:53:13-43
 activity#crypto.wallet.bittrex.ActivityMarket
-ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:55:9-58:68
+ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:57:9-60:68
 	android:label
-		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:57:13-58
+		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:59:13-58
 	android:theme
-		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:58:13-56
+		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:60:13-56
 	android:name
-		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:56:13-43
+		ADDED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml:58:13-43
 uses-sdk
 INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\AndroidManifest.xml
@@ -253,8 +257,8 @@ MERGED from [com.android.support:design:25.3.1] C:\Users\Bor\.gradle\caches\tran
 MERGED from [com.android.support:design:25.3.1] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\design-25.3.1.aar\da9cb5fda4fa65f3607615c31229b42c\AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\fcee111c66c8ed4b6cd772c893c86c4a\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\fcee111c66c8ed4b6cd772c893c86c4a\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\f0fa6df7b1e5dcfe9a0e214818f48c51\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\f0fa6df7b1e5dcfe9a0e214818f48c51\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\755d8adbec15938b2f00d45c49be46f1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\755d8adbec15938b2f00d45c49be46f1\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-ads:11.6.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\firebase-ads-11.6.0.aar\a3cd8fc182dc4bdf5d8c80a7c4aed47d\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-ads:11.6.0] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\firebase-ads-11.6.0.aar\a3cd8fc182dc4bdf5d8c80a7c4aed47d\AndroidManifest.xml:4:5-43
 MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Bor\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-25.3.1.aar\5e5a3f85453db4860d9657aa0b1d5be1\AndroidManifest.xml:20:5-43

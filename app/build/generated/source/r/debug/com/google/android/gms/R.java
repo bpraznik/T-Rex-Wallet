@@ -13,15 +13,15 @@ public final class R {
         public static final int adUnitId = 0x7f040024;
     }
     public static final class id {
-        public static final int auto = 0x7f090024;
-        public static final int center = 0x7f09002e;
-        public static final int none = 0x7f090084;
-        public static final int normal = 0x7f090085;
-        public static final int radio = 0x7f090092;
-        public static final int text = 0x7f0900bd;
-        public static final int text2 = 0x7f0900be;
-        public static final int toolbar = 0x7f0900ce;
-        public static final int wrap_content = 0x7f0900e2;
+        public static final int auto = 0x7f090025;
+        public static final int center = 0x7f090030;
+        public static final int none = 0x7f090086;
+        public static final int normal = 0x7f090087;
+        public static final int radio = 0x7f090094;
+        public static final int text = 0x7f0900c0;
+        public static final int text2 = 0x7f0900c1;
+        public static final int toolbar = 0x7f0900d1;
+        public static final int wrap_content = 0x7f0900e5;
     }
     public static final class integer {
         public static final int google_play_services_version = 0x7f0a0007;
