@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "crypto.wallet.bittrex"
-        minSdkVersion 24
+        minSdkVersion 25
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -35,6 +35,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.7'
     implementation 'com.android.support:cardview-v7:27.0.1'
 }
+
 
 
 

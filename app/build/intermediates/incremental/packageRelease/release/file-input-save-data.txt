@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Mon Nov 27 12:37:42 CET 2017
-0.baseType=DIRECTORY
-0.base=/Users/Fynov/Documents/OneDrive/Documents/School/3. Letnik/BitTrex/app/build/intermediates/transforms/dex/release/0
-0.path=classes.dex
-0.set=DEX
-count=1

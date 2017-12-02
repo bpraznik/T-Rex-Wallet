@@ -13,15 +13,15 @@ public final class R {
         public static final int adUnitId = 0x7f040024;
     }
     public static final class id {
-        public static final int auto = 0x7f090024;
+        public static final int auto = 0x7f090025;
         public static final int center = 0x7f090030;
         public static final int none = 0x7f090086;
         public static final int normal = 0x7f090087;
-        public static final int radio = 0x7f090093;
-        public static final int text = 0x7f0900bd;
-        public static final int text2 = 0x7f0900be;
-        public static final int toolbar = 0x7f0900ce;
-        public static final int wrap_content = 0x7f0900df;
+        public static final int radio = 0x7f090094;
+        public static final int text = 0x7f0900c1;
+        public static final int text2 = 0x7f0900c2;
+        public static final int toolbar = 0x7f0900d2;
+        public static final int wrap_content = 0x7f0900e9;
     }
     public static final class integer {
         public static final int google_play_services_version = 0x7f0a0007;
@@ -37,7 +37,7 @@ public final class R {
         public static final int s7 = 0x7f0e003f;
     }
     public static final class style {
-        public static final int Theme_IAPTheme = 0x7f0f0133;
+        public static final int Theme_IAPTheme = 0x7f0f0134;
     }
     public static final class styleable {
         public static final int[] AdsAttrs = { 0x7f040022, 0x7f040023, 0x7f040024 };

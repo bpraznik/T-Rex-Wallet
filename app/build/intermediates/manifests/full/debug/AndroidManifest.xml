@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="24"
+        android:minSdkVersion="25"
         android:targetSdkVersion="26" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -50,6 +50,15 @@
         android:roundIcon="@drawable/iconapp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name="crypto.wallet.bittrex.ActivitySplash"
+            android:theme="@style/SplashTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="crypto.wallet.bittrex.ActivityCurrency" />
         <activity
             android:name="crypto.wallet.bittrex.ActivityMySettings"
@@ -57,17 +66,17 @@
         <activity
             android:name="crypto.wallet.bittrex.ActivityStart"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name="crypto.wallet.bittrex.ActivityAbout" />
         <activity
             android:name="crypto.wallet.bittrex.ActivityOrders"
             android:label="@string/title_activity_orders"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="crypto.wallet.bittrex.ActivityMarket"
+            android:label="@string/title_activity_market"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data

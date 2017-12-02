@@ -12,17 +12,26 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import crypto.wallet.lib_data.Currency;
 import com.google.android.gms.ads.AdRequest;
@@ -59,13 +68,21 @@ public class ActivityStart extends AppCompatActivity
 
     ApplicationMy app;
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private CryptoAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ConstraintLayout mConstraintLayout;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     public TextView balanceAll;
+    public TextView tvBallanceText;
+    public TextView tvWalletText;
+    public TextView tvBallanceAllFiat;
+    public TextView tvBTCvalueFiat;
+    public View inclWallet;
+    public View inclBalance;
     private JSONTask mTask;
     private AdView mAdView;
+    private ProgressBar pbLoader;
+    private SearchView searchView;
 
 
     static final Integer READ_EXST = 0x4;
@@ -76,6 +93,7 @@ public class ActivityStart extends AppCompatActivity
     double fiatVal = 0;
     public boolean refreshing = false;
     public boolean canceled = false;
+    public double btc1val;
 
     public String link = "";
     public String hash = "";
@@ -99,8 +117,16 @@ public class ActivityStart extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        app = (ApplicationMy) getApplication();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        pbLoader = findViewById(R.id.progressBar2);
+        inclWallet = findViewById(R.id.inclWallet);
+        inclBalance = findViewById(R.id.inclBalance);
+
+        pbLoader.setVisibility(View.VISIBLE);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -112,12 +138,9 @@ public class ActivityStart extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        app = (ApplicationMy) getApplication();
         mAdapter = new CryptoAdapter(app.getAll(), this);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.myRecyclerView);
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
         mConstraintLayout = (ConstraintLayout) findViewById(R.id.layout);
@@ -134,29 +157,41 @@ public class ActivityStart extends AppCompatActivity
             }
         });
 
+
+        //SEARCH
+        searchView = (SearchView) findViewById(R.id.svSearch);
+        searchView.setLayoutParams(new Toolbar.LayoutParams(Gravity.RIGHT));
+        search(searchView);
+
+        //TEXT
         balanceAll = (TextView)findViewById(R.id.balanceAll);
+        tvBallanceText = findViewById(R.id.tvBallanceText);
+        tvWalletText = findViewById(R.id.tvWalletText);
+        tvBTCvalueFiat = findViewById(R.id.BTCvalueFiat);
+        tvBallanceAllFiat = findViewById(R.id.balanceAllFiat);
+
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        // specify an adapter (see also next example)
-        //app = (ApplicationMy) getApplication();
         mAdapter = new CryptoAdapter(app.getAll(), this);
         mRecyclerView.setAdapter(mAdapter);
-        // setSpinner();
-        //setSupportActionBar(toolbar);
 
+        //ADS
         MobileAds.initialize(this, getResources().getString(R.string.addAppID));
-
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().addTestDevice("A36349524CE26B693AF263F8DE5B8159").build();
         mAdView.loadAd(adRequest);
+
     }
+
 
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (!searchView.isIconified()){
+            searchView.setIconified(true);
         } else {
             super.onBackPressed();
             mRecyclerView.getAdapter().notifyDataSetChanged();
@@ -200,17 +235,16 @@ public class ActivityStart extends AppCompatActivity
 
         if (id == R.id.nav_wallet) {
 
-        }/* else if (id == R.id.nav_orders) {
-
-            startActivity(new Intent(this,ActivityOrders.class));
-        }*/ else if (id == R.id.nav_settings) {
+        } else if (id == R.id.nav_market) {
+            startActivity(new Intent(this,ActivityMarket.class));
+            finish();
+        } else if (id == R.id.nav_settings) {
             startActivity(new Intent(this,ActivityMySettings.class));
 
         }/* else if (id == R.id.nav_suggest) {
 
         }*/ else if (id == R.id.nav_about) {
             startActivity(new Intent(this,ActivityAbout.class));
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -254,7 +288,6 @@ public class ActivityStart extends AppCompatActivity
             mTask = new ActivityStart.JSONTask();
             mTask.execute(URL_TO_HIT);
         }else {
-            Log.d("MyApp", api + " " + sec);
             Toast.makeText(ActivityStart.this, "No API keys set!", Toast.LENGTH_SHORT).show();
             loadingDone();
         }
@@ -397,12 +430,69 @@ public class ActivityStart extends AppCompatActivity
                     else
                         fiat =  jsonObj.getString("price_eur");
 
+                    btc1val = Double.parseDouble(fiat);
+
                     app.getAll().fiatVal = Double.valueOf(fiat);
                 }
                 catch(Exception e){
                     Log.d("MyApp","Error");
                 }
 
+                for(Currency c : currencyList)
+                {
+                        //JSON CENA FFS...
+                        String str="https://min-api.cryptocompare.com/data/histohour?fsym=" + c.getName() + "&tsym=BTC&limit=1&aggregate=3&e=BitTrex";
+                        try {
+                            URL url3 = new URL(str);
+                            URLConnection urlc = url3.openConnection();
+                            BufferedReader bfr = new BufferedReader(new InputStreamReader(urlc.getInputStream()));
+                            String line3;
+                            while ((line3 = bfr.readLine()) != null) {
+                                JSONObject JSo = new JSONObject(line3);
+                                JSONArray JSarr = JSo.getJSONArray("Data");
+                                JSONObject jo = JSarr.getJSONObject(0);
+                                c.setHigh1(jo.getDouble("high"));
+                                c.setLow1(jo.getDouble("low"));
+                            }
+                        }
+                        catch(Exception e){
+                        }
+                }
+
+                //GET HIGH/LOW
+
+                for(Currency c : currencyList)
+                {
+                    if(c.getName().equals("BTC"))
+                    {
+                        c.setLastPrice(1.0);
+                    }
+                    else
+                    {
+                        //JSON CENA FFS...
+                        String str="https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-"+c.getName();
+                        try {
+                            URL url3 = new URL(str);
+                            URLConnection urlc = url3.openConnection();
+                            BufferedReader bfr = new BufferedReader(new InputStreamReader(urlc.getInputStream()));
+                            String line3;
+                            while ((line3 = bfr.readLine()) != null) {
+                                JSONObject JSo = new JSONObject(line3);
+                                JSONArray JSarr = JSo.getJSONArray("result");
+                                JSONObject jo = JSarr.getJSONObject(0);
+                                c.setLastPrice(jo.getDouble("Last"));
+                                c.setLow24(jo.getDouble("Low"));
+                                c.setHigh24(jo.getDouble("High"));
+                                c.setValueBTC(round(c.getLastPrice()*c.getQuantity(), 7));
+                                app.getAll().allBalance += (c.getLastPrice()*c.getQuantity());
+                            }
+                        }
+                        catch(Exception e){
+                        }
+                    }
+                }
+
+                /*
                 //GET BTC VALUE
                 Double cena = 0.00;
                 for(Currency m : currencyList)
@@ -435,7 +525,7 @@ public class ActivityStart extends AppCompatActivity
                     m.setLastPrice(cena);
                     m.setValueBTC(round(cena*m.getQuantity(), 7));
                     app.getAll().allBalance += (cena*m.getQuantity());
-                }
+                }*/
                 return currencyList;
 
             } catch (MalformedURLException e) {
@@ -487,7 +577,6 @@ public class ActivityStart extends AppCompatActivity
                 fiatVal = app.getAll().allBalance * Double.valueOf(fiat);
                 fiatVal = round(fiatVal, 2);
                 app.getAll().allBalance = round(app.getAll().allBalance, 7);
-                Log.d("MyApp",String.valueOf(fiatVal));
 
                 int pick = Integer.valueOf(SP.getString("fiatCurrency","0"));
                 String compound;
@@ -499,7 +588,13 @@ public class ActivityStart extends AppCompatActivity
 
 
                 DecimalFormat df = new DecimalFormat("0.00000000");
-                balanceAll.setText(df.format(app.getAll().allBalance) + "Ƀ ≈ " + compound);
+                balanceAll.setText(df.format(app.getAll().allBalance) + "Ƀ");
+                tvBallanceAllFiat.setText("≈ " + compound);
+
+                if (pick == 1)
+                    tvBTCvalueFiat.setText(ef.format(btc1val) + "$");
+                else
+                    tvBTCvalueFiat.setText(ef.format(btc1val) + "€");
 
                 mAdapter.notifyDataSetChanged();
             } else {
@@ -520,7 +615,30 @@ public class ActivityStart extends AppCompatActivity
     }
 
     public void loadingDone(){
+        pbLoader.setVisibility(View.INVISIBLE);
         mSwipeRefreshLayout.setRefreshing(false);
+        tvBallanceText.setVisibility(View.VISIBLE);
+        tvWalletText.setVisibility(View.VISIBLE);
+        inclWallet.setVisibility(View.VISIBLE);
+        inclBalance.setVisibility(View.VISIBLE);
         refreshing = false;
+    }
+
+    private void search(SearchView searchView) {
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                mAdapter.getFilter().filter(newText);
+                return true;
+            }
+        });
     }
 }

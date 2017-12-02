@@ -15,6 +15,10 @@ public class Currency {
     private String longName;
     private double quantity;
     private double lastPrice;
+    private double low24;
+    private double low1;
+    private double high24;
+    private double high1;
     private double valueBTC;
     private double boughtFor;
     private ArrayList<Order> orderList = new ArrayList<>();
@@ -40,6 +44,38 @@ public class Currency {
 
     public  Currency(){
         this.ID = UUID.randomUUID().toString().replaceAll("-", "");
+    }
+
+    public void setHigh1(double high1) {
+        this.high1 = high1;
+    }
+
+    public double getHigh1() {
+        return high1;
+    }
+
+    public void setLow1(double low1) {
+        this.low1 = low1;
+    }
+
+    public double getLow1() {
+        return low1;
+    }
+
+    public void setHigh24(double high24) {
+        this.high24 = high24;
+    }
+
+    public double getHigh24() {
+        return high24;
+    }
+
+    public void setLow24(double low24) {
+        this.low24 = low24;
+    }
+
+    public double getLow24() {
+        return low24;
     }
 
     public double getBoughtFor() {
