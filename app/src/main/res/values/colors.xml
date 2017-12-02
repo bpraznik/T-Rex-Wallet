@@ -7,7 +7,7 @@
     <color name="colorAccentDark">#9f0000</color>
     <color name="colorAccentLigh">#ff7543</color>
     <color name="textColorPrimary">#ffffff</color>
-    <color name="devider">#8fdcdcdc</color>
+    <color name="devider">#1e000000</color>
     <color name="lightGray">#e0e0e0</color>
     <color name="materialGreen">#4caf50</color>
     <color name="materialRed">#f44336</color>

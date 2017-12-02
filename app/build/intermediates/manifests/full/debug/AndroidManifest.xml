@@ -49,7 +49,6 @@
         android:noHistory="false"
         android:roundIcon="@drawable/iconapp"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="crypto.wallet.bittrex.ActivitySplash"

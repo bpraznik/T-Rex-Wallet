@@ -82,6 +82,7 @@ public class ActivityStart extends AppCompatActivity
     private JSONTask mTask;
     private AdView mAdView;
     private ProgressBar pbLoader;
+    private SearchView searchView;
 
 
     static final Integer READ_EXST = 0x4;
@@ -156,6 +157,12 @@ public class ActivityStart extends AppCompatActivity
             }
         });
 
+
+        //SEARCH
+        searchView = (SearchView) findViewById(R.id.svSearch);
+        searchView.setLayoutParams(new Toolbar.LayoutParams(Gravity.RIGHT));
+        search(searchView);
+
         //TEXT
         balanceAll = (TextView)findViewById(R.id.balanceAll);
         tvBallanceText = findViewById(R.id.tvBallanceText);
@@ -175,10 +182,6 @@ public class ActivityStart extends AppCompatActivity
         AdRequest adRequest = new AdRequest.Builder().addTestDevice("A36349524CE26B693AF263F8DE5B8159").build();
         mAdView.loadAd(adRequest);
 
-        //SEARCH
-        SearchView searchView = (SearchView) findViewById(R.id.svSearch);
-        searchView.setLayoutParams(new Toolbar.LayoutParams(Gravity.RIGHT));
-        search(searchView);
     }
 
 
@@ -187,6 +190,8 @@ public class ActivityStart extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (!searchView.isIconified()){
+            searchView.setIconified(true);
         } else {
             super.onBackPressed();
             mRecyclerView.getAdapter().notifyDataSetChanged();

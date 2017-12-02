@@ -1,4 +1,4 @@
-#Thu Nov 30 19:35:26 CET 2017
+#Thu Nov 30 22:38:49 CET 2017
 base.0=C\:\\Users\\Bor\\StudioProjects\\Bit-Trex\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex
