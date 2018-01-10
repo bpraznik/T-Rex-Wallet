@@ -13,6 +13,7 @@ public class DataAll {
     private ArrayList<Currency> currencyList;
     public Double allBalance = 0.0;
     public Double fiatVal = 0.0;
+    public String fiatType;
 
 
     public Currency getCurrencyByID(String ID) {

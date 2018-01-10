@@ -56,7 +56,7 @@
         <CheckBoxPreference
             android:key="hideBeta"
             android:title="Show estimated profit (beta)"
-            android:defaultValue="true"/>
+            android:defaultValue="false"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

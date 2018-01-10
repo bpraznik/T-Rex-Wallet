@@ -1,6 +1,7 @@
 package crypto.wallet.lib_data;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.UUID;
 
 /**
@@ -13,12 +14,15 @@ public class Currency {
 
     private String name;
     private String longName;
+    private int rank;
     private double quantity;
     private double lastPrice;
+
     private double low24;
     private double low1;
-    private double high24;
+    private double percentChange24;
     private double high1;
+
     private double valueBTC;
     private double boughtFor;
     private ArrayList<Order> orderList = new ArrayList<>();
@@ -62,12 +66,12 @@ public class Currency {
         return low1;
     }
 
-    public void setHigh24(double high24) {
-        this.high24 = high24;
+    public void setPercentChange24(double percentChange24) {
+        this.percentChange24 = percentChange24;
     }
 
-    public double getHigh24() {
-        return high24;
+    public double getPercentChange24() {
+        return percentChange24;
     }
 
     public void setLow24(double low24) {
@@ -147,9 +151,44 @@ public class Currency {
         this.fileName = fileName;
     }
 
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
     public boolean hasImage() {
         if (fileName==null) return false;
         else if (fileName.equals(NODATA)) return false;
         return true;
     }
+
+    public static final Comparator<Currency> By_Name_Alphabeticaly = new Comparator<Currency>() {
+        @Override
+        public int compare(Currency currency, Currency t1) {
+            return currency.name.compareTo(t1.name);
+        }
+    };
+    public static final Comparator<Currency> By_Value = new Comparator<Currency>() {
+        @Override
+        public int compare(Currency currency, Currency t1) {
+            return Integer.compare(currency.rank,t1.rank);
+        }
+    };
+    public static final Comparator<Currency> By_Change = new Comparator<Currency>() {
+        @Override
+        public int compare(Currency currency, Currency t1) {
+            return Double.compare(currency.percentChange24,t1.percentChange24);
+        }
+    };
+
+    public static final Comparator<Currency> ByRank = new Comparator<Currency>() {
+        @Override
+        public int compare(Currency currency, Currency t1) {
+
+            return currency.name.compareTo(t1.name);
+        }
+    };
 }

@@ -57,6 +57,13 @@
         <activity
             android:name=".ActivityMarket"
             android:label="@string/title_activity_market"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ActivityMarketCurrency"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ActivityChart"
+            android:label="@string/title_activity_chart"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

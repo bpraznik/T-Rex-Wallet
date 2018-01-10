@@ -12,10 +12,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,14 +22,11 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Filter;
-import android.widget.Filterable;
 
 import crypto.wallet.lib_data.Currency;
 import com.google.android.gms.ads.AdRequest;
@@ -122,11 +117,7 @@ public class ActivityStart extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        pbLoader = findViewById(R.id.progressBar2);
-        inclWallet = findViewById(R.id.inclWallet);
         inclBalance = findViewById(R.id.inclBalance);
-
-        pbLoader.setVisibility(View.VISIBLE);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -237,10 +228,8 @@ public class ActivityStart extends AppCompatActivity
 
         } else if (id == R.id.nav_market) {
             startActivity(new Intent(this,ActivityMarket.class));
-            finish();
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(this,ActivityMySettings.class));
-
         }/* else if (id == R.id.nav_suggest) {
 
         }*/ else if (id == R.id.nav_about) {
@@ -466,6 +455,9 @@ public class ActivityStart extends AppCompatActivity
                     if(c.getName().equals("BTC"))
                     {
                         c.setLastPrice(1.0);
+                        c.setValueBTC(c.getLastPrice()*c.getQuantity());
+                        c.setValueBTC(round(c.getLastPrice()*c.getQuantity(), 7));
+                        app.getAll().allBalance += (c.getLastPrice()*c.getQuantity());
                     }
                     else
                     {
@@ -480,9 +472,7 @@ public class ActivityStart extends AppCompatActivity
                                 JSONObject JSo = new JSONObject(line3);
                                 JSONArray JSarr = JSo.getJSONArray("result");
                                 JSONObject jo = JSarr.getJSONObject(0);
-                                c.setLastPrice(jo.getDouble("Last"));
-                                c.setLow24(jo.getDouble("Low"));
-                                c.setHigh24(jo.getDouble("High"));
+                                c.setLastPrice(jo.getDouble("Last"));;
                                 c.setValueBTC(round(c.getLastPrice()*c.getQuantity(), 7));
                                 app.getAll().allBalance += (c.getLastPrice()*c.getQuantity());
                             }
@@ -492,40 +482,6 @@ public class ActivityStart extends AppCompatActivity
                     }
                 }
 
-                /*
-                //GET BTC VALUE
-                Double cena = 0.00;
-                for(Currency m : currencyList)
-                {
-                    if(m.getName().equals("BTC"))
-                    {
-                        cena = 1.0;
-                    }
-                    else
-                    {
-                        //JSON CENA FFS...
-                        String str="https://bittrex.com/api/v1.1/public/getticker?market=BTC-"+m.getName();
-                        try {
-                            URL url3 = new URL(str);
-                            URLConnection urlc = url3.openConnection();
-                            BufferedReader bfr = new BufferedReader(new InputStreamReader(urlc.getInputStream()));
-                            String line3;
-                            while ((line3 = bfr.readLine()) != null) {
-                                JSONObject jsa = new JSONObject(line3);
-                                JSONObject jo = jsa.getJSONObject("result");
-                                cena = jo.getDouble("Last");
-                            }
-                        }
-                        catch(Exception e){
-                        }
-
-                        //do tu? :D
-                        //m.getMovie()-BTC
-                    }
-                    m.setLastPrice(cena);
-                    m.setValueBTC(round(cena*m.getQuantity(), 7));
-                    app.getAll().allBalance += (cena*m.getQuantity());
-                }*/
                 return currencyList;
 
             } catch (MalformedURLException e) {
@@ -592,9 +548,9 @@ public class ActivityStart extends AppCompatActivity
                 tvBallanceAllFiat.setText("≈ " + compound);
 
                 if (pick == 1)
-                    tvBTCvalueFiat.setText(ef.format(btc1val) + "$");
+                    tvBTCvalueFiat.setText("BTC: "+ef.format(btc1val) + "$");
                 else
-                    tvBTCvalueFiat.setText(ef.format(btc1val) + "€");
+                    tvBTCvalueFiat.setText("BTC: "+ef.format(btc1val) + "€");
 
                 mAdapter.notifyDataSetChanged();
             } else {
@@ -615,11 +571,10 @@ public class ActivityStart extends AppCompatActivity
     }
 
     public void loadingDone(){
-        pbLoader.setVisibility(View.INVISIBLE);
         mSwipeRefreshLayout.setRefreshing(false);
         tvBallanceText.setVisibility(View.VISIBLE);
         tvWalletText.setVisibility(View.VISIBLE);
-        inclWallet.setVisibility(View.VISIBLE);
+        mRecyclerView.setVisibility(View.VISIBLE);
         inclBalance.setVisibility(View.VISIBLE);
         refreshing = false;
     }

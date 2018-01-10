@@ -8,13 +8,22 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_orders">Your order history</string>
     <string name="app_version">T-rex Wallet version 1.0</string>
-    <string name="copiright">© 2017 BP Devs</string>
+    <string name="copiright">© 2017 BP/dev</string>
 
     <string name="addAppID">ca-app-pub-6319696292223693~5728720128</string>
 
     <string name="StartPageBottomBanner">ca-app-pub-6319696292223693/3318179207</string>
     <string name="CurrencyPageBottomBanner">ca-app-pub-6319696292223693/7037932368</string>
     <string name="title_activity_market">T-rex Market</string>
+    <string name="title_activity_test">ActivityTest</string>
+
+
+    <string name="candle_stick_chart_url">file:///android_asset/CandleStickChart.html</string>
+    <string name="title_activity_chart">ActivityChart</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="tab_text_1">30 min</string>
+    <string name="tab_text_2">1 day</string>
+    <string name="tab_text_3">7 day</string>
 
 
     <!--

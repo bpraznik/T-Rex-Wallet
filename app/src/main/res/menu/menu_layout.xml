@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/alpha"
+        android:title="Alphabeticaly">
+        <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/alphaAsc"
+                android:title="Ascending" />
+            <item android:id="@+id/alphaDesc"
+                android:title="Descending" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/value"
+        android:title="By Rank">
+        <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/valAsc"
+                android:title="Ascending" />
+            <item android:id="@+id/valDesc"
+                android:title="Descending" />
+        </menu>
+    </item>
+    <item android:id="@+id/change"
+        android:title="By 24h change">
+        <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/changeAsc"
+                android:title="Ascending" />
+            <item android:id="@+id/changeDesc"
+                android:title="Descending" />
+        </menu>
+    </item>
+</menu>

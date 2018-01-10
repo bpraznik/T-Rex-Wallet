@@ -24,8 +24,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:icon="@drawable/ic_search_black_24dp"
-                android:maxWidth="200dp" />
+                android:maxWidth="200dp" >
+
+            </android.support.v7.widget.SearchView>
         </android.support.v7.widget.Toolbar>
+
 
     </android.support.design.widget.AppBarLayout>
 

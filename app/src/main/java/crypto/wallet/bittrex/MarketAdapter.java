@@ -1,7 +1,10 @@
 package crypto.wallet.bittrex;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -28,14 +30,15 @@ class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder> imple
 
     public ArrayList<Currency> mArrayList;
     public ArrayList<Currency> mFilteredList;
+    Context context;
     Activity ac;
 
 
-    public MarketAdapter(ArrayList<Currency> all, Activity acc) {
+    public MarketAdapter(ArrayList<Currency> all, Activity acc, Context con) {
         mArrayList = all;
         mFilteredList = all;
+        context = con;
         ac = acc;
-        Log.d("Adapter", "here");
     }
 
 
@@ -45,22 +48,34 @@ class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder> imple
         public TextView tvSymbol;
         public TextView tvValue;
         public TextView tvPercentChange;
+        public ConstraintLayout ly;
 
 
         public ViewHolder(View v) {
             super(v);
-            Log.d("Adpater", "Im ");
             tvSymbol = (TextView) v.findViewById(R.id.tvSymbol);
             tvValue = (TextView) v.findViewById(R.id.tvValue);
             tvPercentChange = (TextView) v.findViewById(R.id.tvPercentChange);
+            ly = (ConstraintLayout) v.findViewById(R.id.layout);
 
         }
     }
 
     private static void startDView(String currencyID, Activity ac) {
         //  System.out.println(name+":"+position);
-        Intent i = new Intent(ac.getBaseContext(), ActivityCurrency.class);
+        String tmp = currencyID;
+        currencyID += "BTC";
+        if (currencyID.equalsIgnoreCase("BTCBTC")){
+            SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(ac);
+            int pick = Integer.valueOf(SP.getString("fiatCurrency","0"));
+            if (pick == 1)
+                currencyID = "BTCUSD";
+            else
+                currencyID = "BTCEUR";
+        }
+        Intent i = new Intent(ac.getBaseContext(), ActivityMarketCurrency.class);
         i.putExtra(DataAll.CURRENCY_ID,  currencyID);
+        i.putExtra("Name",  tmp);
         ac.startActivity(i);
 
     }
@@ -69,7 +84,6 @@ class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder> imple
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.d("Adpater", "Im heeeere");
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.marketrow, parent, false);
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
@@ -80,12 +94,25 @@ class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder> imple
     public void onBindViewHolder(ViewHolder holder, final int position) {
         //final Currency trenutni = all.getCurrency(position);
         final Currency trenutni = mFilteredList.get(position);
-        double percent = trenutni.getHigh1();
+        double percent = trenutni.getPercentChange24();
+
+        holder.ly.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MarketAdapter.startDView(trenutni.getName(),ac);
+            }
+        });
 
         holder.tvSymbol.setText(trenutni.getName());
 
-        DecimalFormat df = new DecimalFormat("0.00000000");
-        holder.tvValue.setText(df.format(trenutni.getValueBTC()));
+        DecimalFormat df = new DecimalFormat("0.00");
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(context);
+        int pick = Integer.valueOf(SP.getString("fiatCurrency","0"));
+
+        if (pick == 1)
+            holder.tvValue.setText(df.format(trenutni.getValueBTC())+"$");
+        else
+            holder.tvValue.setText(df.format(trenutni.getValueBTC())+"€");
 
         if (percent>0)
             holder.tvPercentChange.setTextColor(ContextCompat.getColor(ac, R.color.materialGreen));

@@ -1,38 +1,29 @@
 package crypto.wallet.bittrex;
 
-import android.*;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.widget.Spinner;
 import android.widget.Toast;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,11 +43,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.Collections;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.Random;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -80,6 +68,8 @@ public class ActivityMarket extends AppCompatActivity
     public String sec = "abc123";
     public boolean refreshing = false;
     private JSONTask mTask;
+    String fiat = "";
+    double fiatVal = 0;
 
     public String link = "";
     public String hash = "";
@@ -87,14 +77,6 @@ public class ActivityMarket extends AppCompatActivity
     public ActivityMarket() throws NoSuchAlgorithmException, SignatureException, InvalidKeyException, UnsupportedEncodingException {
     }
 
-    public String getHash()
-    {
-        return hash;
-    }
-    public String getLink()
-    {
-        return link;
-    }
 
     public String URL_TO_HIT = link;
 
@@ -119,7 +101,7 @@ public class ActivityMarket extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        mAdapter = new MarketAdapter(currencyList, this);
+        mAdapter = new MarketAdapter(currencyList, this, getBaseContext());
 
         mRecyclerView = (RecyclerView) findViewById(R.id.myRecyclerView);
         mRecyclerView.setHasFixedSize(true);
@@ -138,7 +120,7 @@ public class ActivityMarket extends AppCompatActivity
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new MarketAdapter(currencyList, this);
+        mAdapter = new MarketAdapter(currencyList, this,getBaseContext());
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
 
@@ -163,6 +145,7 @@ public class ActivityMarket extends AppCompatActivity
             searchView.setIconified(true);
         }else {
             super.onBackPressed();
+            finish();
         }
 
 
@@ -175,18 +158,16 @@ public class ActivityMarket extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_wallet) {
-            startActivity(new Intent(this,ActivityStart.class));
             finish();
         } else if (id == R.id.nav_market) {
 
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(this,ActivityMySettings.class));
-
         }/* else if (id == R.id.nav_suggest) {
 
         }*/ else if (id == R.id.nav_about) {
             startActivity(new Intent(this,ActivityAbout.class));
-
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -202,64 +183,46 @@ public class ActivityMarket extends AppCompatActivity
         api = SP.getString("key","");
         sec = SP.getString("secret","");
 
-        if (api != "" && sec !=""){
-            mSwipeRefreshLayout.setRefreshing(true);
-            //mProgressBar.setVisibility(View.VISIBLE);
-            link = "https://api.coinmarketcap.com/v1/ticker/?limit=300";
-            hash = calculateHash(sec, link, "HmacSHA512");
+        mSwipeRefreshLayout.setRefreshing(true);
+        link = "https://api.coinmarketcap.com/v1/ticker/?limit=300";
 
-            URL_TO_HIT = link;
-            new JSONTask().execute(URL_TO_HIT);
-        }else {
-            Toast.makeText(ActivityMarket.this, "No API keys set!", Toast.LENGTH_SHORT).show();
-            loadingDone();
-        }
+        URL_TO_HIT = link;
+        new JSONTask().execute(URL_TO_HIT);
     }
 
-    final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
-
-    public static String calculateHash(String secret, String url, String encryption) {
-        Mac shaHmac = null;
-
-        try {
-
-            shaHmac = Mac.getInstance(encryption);
-
-        } catch (NoSuchAlgorithmException e) {
-
-            e.printStackTrace();
-        }
-
-        SecretKeySpec secretKey = new SecretKeySpec(secret.getBytes(), encryption);
-
-        try {
-
-            shaHmac.init(secretKey);
-
-        } catch (InvalidKeyException e) {
-
-            e.printStackTrace();
-        }
-
-        byte[] hash = shaHmac.doFinal(url.getBytes());
-        String check = bytesToHex(hash);
-
-        return check;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_layout, menu);
+        return true;
     }
-
-    private static String bytesToHex(byte[] bytes) {
-
-        char[] hexChars = new char[bytes.length * 2];
-
-        for(int j = 0; j < bytes.length; j++) {
-
-            int v = bytes[j] & 0xFF;
-
-            hexChars[j * 2] = hexArray[v >>> 4];
-            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.alphaAsc:
+                Collections.sort(currencyList, Currency.By_Name_Alphabeticaly);
+                break;
+            case R.id.alphaDesc:
+                Collections.sort(currencyList, Currency.By_Name_Alphabeticaly.reversed());
+                break;
+            case R.id.valAsc:
+                Collections.sort(currencyList, Currency.By_Value);
+                break;
+            case R.id.valDesc:
+                Collections.sort(currencyList, Currency.By_Value.reversed());
+                break;
+            case R.id.changeAsc:
+                Collections.sort(currencyList, Currency.By_Change);
+                break;
+            case R.id.changeDesc:
+                Collections.sort(currencyList, Currency.By_Change.reversed());
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return new String(hexChars);
+        mAdapter.notifyDataSetChanged();
+        return true;
     }
 
     public class JSONTask extends AsyncTask<String,String, List<Currency> > {
@@ -273,13 +236,11 @@ public class ActivityMarket extends AppCompatActivity
         protected List<Currency> doInBackground(String... params) {
             HttpURLConnection connection = null;
             BufferedReader reader = null;
-            String mojHash = getHash();
 
 
             try {
                 URL url = new URL(params[0]);
                 connection = (HttpURLConnection) url.openConnection();
-                connection.addRequestProperty("apisign", mojHash);
                 connection.connect();
                 InputStream stream = connection.getInputStream();
                 reader = new BufferedReader(new InputStreamReader(stream));
@@ -299,12 +260,44 @@ public class ActivityMarket extends AppCompatActivity
                     Currency valuta = new Currency();
                     valuta.setName(finalObject.getString("symbol"));
                     valuta.setLongName(finalObject.getString("name"));
+                    valuta.setRank(finalObject.getInt("rank"));
                     valuta.setQuantity(-2);
-                    valuta.setValueBTC(round(finalObject.getDouble("price_btc"),7));
+                    valuta.setValueBTC(round(finalObject.getDouble("price_btc"),7)*app.getAll().fiatVal);
                     if (finalObject.getString("percent_change_24h") == "null")
                         continue;
-                    valuta.setHigh1(finalObject.getDouble("percent_change_24h"));
+                    valuta.setPercentChange24(finalObject.getDouble("percent_change_24h"));
                     curList.add(valuta);
+                }
+
+                String str1="https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=EUR";
+                try {
+                    fiatVal =0;
+                    URL url4 = new URL(str1);
+                    StringBuffer buferer = new StringBuffer();
+                    URLConnection urlf = url4.openConnection();
+                    BufferedReader bfr5 = new BufferedReader(new InputStreamReader(urlf.getInputStream()));
+                    String line8;
+                    while ((line8 = bfr5.readLine()) != null) {
+                        buferer.append(line8+"\n");
+                    }
+                    JSONArray jsonArr = new JSONArray(buferer.toString());
+                    Log.d("Myapp", jsonArr.getString(0));
+                    JSONObject jsonObj = new JSONObject(jsonArr.getString(0));
+
+
+                    SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                    int pick = Integer.valueOf(SP.getString("fiatCurrency","0"));
+                    if (pick == 1){
+                        fiat =  jsonObj.getString("price_usd");
+                    }
+                    else{
+                        fiat =  jsonObj.getString("price_eur");
+                    }
+
+                    app.getAll().fiatVal = Double.valueOf(fiat);
+                }
+                catch(Exception e){
+                    Log.d("MyApp","Error");
                 }
 
                 return curList;
@@ -369,13 +362,11 @@ public class ActivityMarket extends AppCompatActivity
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
                 mAdapter.getFilter().filter(newText);
                 return true;
             }

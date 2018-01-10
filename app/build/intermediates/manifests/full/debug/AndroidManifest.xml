@@ -49,6 +49,7 @@
         android:noHistory="false"
         android:roundIcon="@drawable/iconapp"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="crypto.wallet.bittrex.ActivitySplash"
@@ -77,6 +78,13 @@
         <activity
             android:name="crypto.wallet.bittrex.ActivityMarket"
             android:label="@string/title_activity_market"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="crypto.wallet.bittrex.ActivityMarketCurrency"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="crypto.wallet.bittrex.ActivityChart"
+            android:label="@string/title_activity_chart"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data

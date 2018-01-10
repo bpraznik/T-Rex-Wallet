@@ -10,7 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +54,7 @@ public class ActivityCurrency extends AppCompatActivity {
     TextView currencyBoughtFor;
     TextView currencyBTCValue;
     TextView currencyTotal;
+    WebView tradeView;
     String ID;
     Currency c;
     Bundle extras;
@@ -68,10 +72,7 @@ public class ActivityCurrency extends AppCompatActivity {
     static final Integer READ_EXST = 0x4;
     public String api = "abc123";
     public String sec = "abc123";
-    String fiat = "";
-    double fiatVal = 0;
 
-    //private final String URL_TO_HIT = "https://bittrex.com/api/v1.1/public/getcurrencies";
     public String link = "";
     public String hash = "";
 
@@ -88,10 +89,9 @@ public class ActivityCurrency extends AppCompatActivity {
     public String URL_TO_HIT = link;
 
 
-
-
     public ActivityCurrency() throws NoSuchAlgorithmException, SignatureException, InvalidKeyException, UnsupportedEncodingException {
     }
+
     public void doItMan()
     {
         if (!refreshing){
@@ -120,6 +120,9 @@ public class ActivityCurrency extends AppCompatActivity {
         currencyBoughtFor = (TextView) findViewById(R.id.boughtForView);
         currencyBTCValue = (TextView) findViewById(R.id.curentBTCValueView);
         currencyTotal = (TextView) findViewById(R.id.totalTextView);
+        tradeView = findViewById(R.id.chartView);
+
+
 
         ID ="";
 
@@ -195,6 +198,7 @@ public class ActivityCurrency extends AppCompatActivity {
 
     public void update(Currency c) {
         currencyName.setText(c.getName());
+        loadchart();
 
         DecimalFormat df = new DecimalFormat("0.00000000");
         currencyValue.setText(df.format(c.getQuantity()));
@@ -427,14 +431,6 @@ public class ActivityCurrency extends AppCompatActivity {
     }
 
     public static double round(double value, int places) {
-        /*
-        if (places < 0) throw new IllegalArgumentException();
-
-        BigDecimal bd = new BigDecimal(value);
-        bd = bd.setScale(places, RoundingMode.HALF_UP);
-        return bd.doubleValue();
-        */
-
         if (places == 2){
             DecimalFormat twoDForm = new DecimalFormat("#.##");
             return Double.valueOf(twoDForm.format(value));
@@ -442,10 +438,54 @@ public class ActivityCurrency extends AppCompatActivity {
             DecimalFormat twoDForm = new DecimalFormat("#.########");
             return Double.valueOf(twoDForm.format(value));
         }
-
     }
+
     public void loadingDone(){
         mSwipeRefreshLayout.setRefreshing(false);
         refreshing = false;
+    }
+
+    public void loadchart(){
+        String symbol ="";
+
+        symbol = c.getName() + "BTC";
+        if (symbol.equalsIgnoreCase("BTCBTC")){
+            SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+            int pick = Integer.valueOf(SP.getString("fiatCurrency","0"));
+            if (pick == 1)
+                symbol = "BTCUSD";
+            else
+                symbol = "BTCEUR";
+        }
+        String tradeString = "<!-- TradingView Widget BEGIN -->\n" +
+                "<script type=\"text/javascript\" src=\"https://s3.tradingview.com/tv.js\"></script>\n" +
+                "<script type=\"text/javascript\">\n" +
+                "new TradingView.widget({\n" +
+                "  \"autosize\": true,\n" +
+                "  \"symbol\": \"" + symbol +"\",\n" +
+                "  \"interval\": \"30\",\n" +
+                "  \"timezone\": \"Etc/UTC\",\n" +
+                "  \"theme\": \"Light\",\n" +
+                "  \"style\": \"1\",\n" +
+                "  \"locale\": \"en\",\n" +
+                "  \"toolbar_bg\": \"#f1f3f6\",\n" +
+                "  \"enable_publishing\": false,\n" +
+                "  \"hide_top_toolbar\": true,\n" +
+                "  \"save_image\": false,\n" +
+                "  \"hideideas\": true\n" +
+                "});\n" +
+                "</script>\n" +
+                "<!-- TradingView Widget END --> ";
+        tradeView.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return super.shouldOverrideUrlLoading(view, request);
+            }
+        });
+
+
+        WebSettings webSettings = tradeView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        tradeView.loadData(tradeString, "text/html", "utf-8");
     }
 }

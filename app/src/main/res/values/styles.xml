@@ -6,6 +6,16 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionOverflowButtonStyle">@style/OverFlow</item>
+
+    </style>
+
+    <style name="OverFlow" parent="@android:style/Widget.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_sort_black_24dp</item>
+    </style>
+
+    <style name="Button" parent="@style/Widget.AppCompat.Button">
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
