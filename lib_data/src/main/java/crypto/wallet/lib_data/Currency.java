@@ -46,6 +46,11 @@ public class Currency {
         this.fileName = fileName;
     }
 
+    public Currency(String name, double quantity){
+        this.name = name;
+        this.quantity = quantity;
+    }
+
     public  Currency(){
         this.ID = UUID.randomUUID().toString().replaceAll("-", "");
     }

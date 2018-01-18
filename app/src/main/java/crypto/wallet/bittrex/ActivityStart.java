@@ -394,6 +394,15 @@ public class ActivityStart extends AppCompatActivity
                         currencyList.add(valuta);
                 }
 
+                //TESTNI PODATKI
+                /*
+                currencyList.clear();
+                currencyList.add(new Currency("XRP", 352.54928105));
+                currencyList.add(new Currency("FUN", 9369.25920683));
+                currencyList.add(new Currency("BTC", 1.93245952));
+                currencyList.add(new Currency("NEO", 45.33295322));
+                currencyList.add(new Currency("ANT", 99.49206810));
+                */
 
                 //GET FIAT VALUE
                 String str1="https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=EUR";

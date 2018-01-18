@@ -234,7 +234,8 @@ public class ActivityMarketCurrency extends AppCompatActivity {
                     }
                     pbRecomend.setProgress(progress/2);
                 }
-                historyData.add(tmp);
+                if(tmp.getValue() != 0 && tmp.getValueDay() != 0 && tmp.getValueWeek() != 0)
+                    historyData.add(tmp);
             }
 
 
