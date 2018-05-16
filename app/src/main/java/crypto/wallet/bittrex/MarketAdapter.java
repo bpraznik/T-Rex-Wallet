@@ -64,6 +64,10 @@ class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder> imple
     private static void startDView(String currencyID, Activity ac) {
         //  System.out.println(name+":"+position);
         String tmp = currencyID;
+        if (tmp.contains("MIOTA")) {
+            tmp = "IOTA";
+            currencyID = "IOTA";
+        }
         currencyID += "BTC";
         if (currencyID.equalsIgnoreCase("BTCBTC")){
             SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(ac);

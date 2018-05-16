@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Bor\\StudioProjects\\Bit-Trex\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\da9cb5fda4fa65f3607615c31229b42c\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\95ebe4fe514ce947bce8c10161ec38b8\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\fcee111c66c8ed4b6cd772c893c86c4a\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\301ba4cdc5f5f40a509f8f030027eea6\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

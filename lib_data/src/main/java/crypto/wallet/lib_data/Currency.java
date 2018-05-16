@@ -23,6 +23,10 @@ public class Currency {
     private double percentChange24;
     private double high1;
 
+    private double last;
+    private double high;
+    private double low;
+
     private double valueBTC;
     private double boughtFor;
     private ArrayList<Order> orderList = new ArrayList<>();
@@ -49,6 +53,30 @@ public class Currency {
     public Currency(String name, double quantity){
         this.name = name;
         this.quantity = quantity;
+    }
+
+    public double getLast() {
+        return last;
+    }
+
+    public void setLast(double last) {
+        this.last = last;
+    }
+
+    public double getHigh() {
+        return high;
+    }
+
+    public void setHigh(double high) {
+        this.high = high;
+    }
+
+    public double getLow() {
+        return low;
+    }
+
+    public void setLow(double low) {
+        this.low = low;
     }
 
     public  Currency(){

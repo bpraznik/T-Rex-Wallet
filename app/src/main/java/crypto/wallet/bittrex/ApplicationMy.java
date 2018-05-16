@@ -17,6 +17,7 @@ import java.util.List;
 public class ApplicationMy extends Application {
     int x;
     DataAll all;
+    boolean refreshing = false;
 
     private static final String DATA_MAP = "cryptodatamap";
     private static final String FILE_NAME = "BitTrex.json";

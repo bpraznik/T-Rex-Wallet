@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Bor\\StudioProjects\\Bit-Trex\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nl\\values-nl.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\fcee111c66c8ed4b6cd772c893c86c4a\\res\\values-nl\\values-nl.xml",
+                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\301ba4cdc5f5f40a509f8f030027eea6\\res\\values-nl\\values-nl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,24 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-ads-11.6.0.aar\\239fefb7f05eae77ad71e68dd5c9b6df\\res\\values-nl\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10",
-                        "startColumns": "0,0,0,0,0,0,0",
-                        "startOffsets": "237,312,432,500,566,645,756",
-                        "endColumns": "74,119,67,65,78,110,72",
-                        "endOffsets": "311,431,499,565,644,755,828"
-                    },
-                    "to": {
-                        "startLines": "22,23,24,25,26,27,28",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "2284,2363,2487,2559,2629,2712,2827",
-                        "endColumns": "78,123,71,69,82,114,76",
-                        "endOffsets": "2358,2482,2554,2624,2707,2822,2899"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\80cb2add9e12ca72b5cddbd4397ed8e9\\res\\values-nl\\values.xml",
+                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\6fde9e5f15a6c4dfc80acc3089087acf\\res\\values-nl\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -52,6 +35,23 @@
                         "startOffsets": "2082",
                         "endColumns": "201",
                         "endOffsets": "2279"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-ads-11.6.0.aar\\c8d76f7fe15d19323250ffdf8bec96e6\\res\\values-nl\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "0,0,0,0,0,0,0",
+                        "startOffsets": "237,312,432,500,566,645,756",
+                        "endColumns": "74,119,67,65,78,110,72",
+                        "endOffsets": "311,431,499,565,644,755,828"
+                    },
+                    "to": {
+                        "startLines": "22,23,24,25,26,27,28",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "2284,2363,2487,2559,2629,2712,2827",
+                        "endColumns": "78,123,71,69,82,114,76",
+                        "endOffsets": "2358,2482,2554,2624,2707,2822,2899"
                     }
                 }
             ]

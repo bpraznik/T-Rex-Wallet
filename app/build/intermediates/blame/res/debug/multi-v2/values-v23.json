@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Bor\\StudioProjects\\Bit-Trex\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\fcee111c66c8ed4b6cd772c893c86c4a\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\301ba4cdc5f5f40a509f8f030027eea6\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.1.aar\\6a4557e766b2e8c4eaf5f493486363a8\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-26.1.0.aar\\a3bdbbe53c00adce255cdbd80abaef1d\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

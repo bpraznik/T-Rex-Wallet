@@ -1,10 +1,12 @@
 package crypto.wallet.bittrex;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -14,6 +16,8 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +36,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -49,15 +55,25 @@ import javax.crypto.spec.SecretKeySpec;
 public class ActivityCurrency extends AppCompatActivity {
 
     ApplicationMy app;
+    ActivityCurrency ac;
     TextView currencyName;
     TextView currencyValue;
     TextView currencyBoughtFor;
     TextView currencyBTCValue;
     TextView currencyTotal;
+    TextView tvLast;
+    TextView tvHigh;
+    TextView tvLow;
+    Button btnFullScreen;
     WebView tradeView;
+    View devider1;
+    ConstraintLayout includeLast;
+    ProgressBar pbLast;
     String ID;
     Currency c;
     Bundle extras;
+
+    String symbol ="";
 
 
     public boolean refreshing = false;
@@ -120,7 +136,16 @@ public class ActivityCurrency extends AppCompatActivity {
         currencyBoughtFor = (TextView) findViewById(R.id.boughtForView);
         currencyBTCValue = (TextView) findViewById(R.id.curentBTCValueView);
         currencyTotal = (TextView) findViewById(R.id.totalTextView);
+        tvLast = (TextView) findViewById(R.id.tvLast);
+        tvHigh = (TextView) findViewById(R.id.tvHigh);
+        tvLow = (TextView) findViewById(R.id.tvLow);
         tradeView = findViewById(R.id.chartView);
+        devider1 = findViewById(R.id.view3);
+        includeLast = findViewById(R.id.includeLast);
+        pbLast = findViewById(R.id.pbLast);
+        btnFullScreen = findViewById(R.id.btnFull);
+
+        ac=this;
 
 
 
@@ -128,7 +153,7 @@ public class ActivityCurrency extends AppCompatActivity {
 
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         if (!SP.getBoolean("hideBeta", true)){
-            View namebar = findViewById(R.id.cw2);
+            View namebar = findViewById(R.id.includeBoughtFor);
             ((ViewGroup) namebar.getParent()).removeView(namebar);
         }
 
@@ -166,6 +191,14 @@ public class ActivityCurrency extends AppCompatActivity {
         }
 
 
+        btnFullScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ac, ActivityChart.class);
+                i.putExtra("Name",  symbol);
+                ac.startActivity(i);
+            }
+        });
         mAdView = (AdView) findViewById(R.id.adView2);
         AdRequest adRequest = new AdRequest.Builder().addTestDevice("A36349524CE26B693AF263F8DE5B8159").build();
         mAdView.loadAd(adRequest);
@@ -352,6 +385,29 @@ public class ActivityCurrency extends AppCompatActivity {
                 }catch (Exception es){
                     Log.d("Error" ,es.toString());
                 }
+
+                try {
+                        String str="https://bittrex.com/api/v1.1/public/getmarketsummary?market=BTC-"+c.getName();
+                    try {
+                        URL url3 = new URL(str);
+                        URLConnection urlc = url3.openConnection();
+                        BufferedReader bfr = new BufferedReader(new InputStreamReader(urlc.getInputStream()));
+                        String line3;
+                        while ((line3 = bfr.readLine()) != null) {
+                            JSONObject jsa = new JSONObject(line3);
+                            JSONArray jsa2 = jsa.getJSONArray("result");
+                            JSONObject jo = jsa2.getJSONObject(0);
+                            c.setLast(jo.getDouble("Last"));
+                            c.setLow(jo.getDouble("Low"));
+                            c.setHigh(jo.getDouble("High"));
+                        }
+                    }
+                    catch(Exception e){
+                    }
+
+                }catch (Exception es){
+                    Log.d("Error" ,es.toString());
+                }
                 return currencyList;
 
             } catch (MalformedURLException e) {
@@ -398,6 +454,12 @@ public class ActivityCurrency extends AppCompatActivity {
 
             currencyBoughtFor.setText(df.format(c.getBoughtFor()) + "Ƀ ≈ " + compound);
 
+            devider1.setVisibility(View.VISIBLE);
+            includeLast.setVisibility(View.VISIBLE);
+            pbLast.setProgress((int) Math.floor((100-0)/(c.getHigh()-c.getLow())*(c.getLast()-c.getHigh())+100));
+            tvLast.setText("Last:\n" + df.format(c.getLast()));
+            tvHigh.setText("High:\n" + df.format(c.getHigh()));
+            tvLow.setText("Low:\n" + df.format(c.getLow()));
 
             tmp = c.getValueBTC();
             if (pick == 1)
@@ -431,13 +493,11 @@ public class ActivityCurrency extends AppCompatActivity {
     }
 
     public static double round(double value, int places) {
-        if (places == 2){
-            DecimalFormat twoDForm = new DecimalFormat("#.##");
-            return Double.valueOf(twoDForm.format(value));
-        }else {
-            DecimalFormat twoDForm = new DecimalFormat("#.########");
-            return Double.valueOf(twoDForm.format(value));
-        }
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     public void loadingDone(){
@@ -446,7 +506,6 @@ public class ActivityCurrency extends AppCompatActivity {
     }
 
     public void loadchart(){
-        String symbol ="";
 
         symbol = c.getName() + "BTC";
         if (symbol.equalsIgnoreCase("BTCBTC")){

@@ -4,6 +4,7 @@
 
     <PreferenceCategory
         android:title="API Key"
+        android:summary="Use READ ONLY api keys!"
         android:key="api_key">
 
 
@@ -20,7 +21,7 @@
             android:key="secret"
             android:title="Secret Key"
             android:summary="Enter Your Secret Key"
-            android:dialogTitle="Enter Your Secret Key"
+            android:dialogTitle="Secret Key"
             android:dialogMessage="Enter Your Secret Key"
             android:defaultValue=""
             android:inputType="textCapWords"/>
@@ -55,7 +56,7 @@
         android:key="display">
         <CheckBoxPreference
             android:key="hideBeta"
-            android:title="Show estimated profit (beta)"
+            android:title="Show profit estimates(beta)"
             android:defaultValue="false"/>
     </PreferenceCategory>
 

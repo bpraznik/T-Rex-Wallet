@@ -1,6 +1,7 @@
 package crypto.wallet.bittrex;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -15,6 +16,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -43,6 +45,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -67,16 +71,17 @@ public class ActivityStart extends AppCompatActivity
     private RecyclerView.LayoutManager mLayoutManager;
     private ConstraintLayout mConstraintLayout;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+
     public TextView balanceAll;
     public TextView tvBallanceText;
     public TextView tvWalletText;
     public TextView tvBallanceAllFiat;
     public TextView tvBTCvalueFiat;
-    public View inclWallet;
     public View inclBalance;
+
     private JSONTask mTask;
+
     private AdView mAdView;
-    private ProgressBar pbLoader;
     private SearchView searchView;
 
 
@@ -86,8 +91,11 @@ public class ActivityStart extends AppCompatActivity
     public String sec = "abc123";
     String fiat = "";
     double fiatVal = 0;
-    public boolean refreshing = false;
-    public boolean canceled = false;
+    int i = 0;
+
+    boolean up = false;
+    boolean avoid = false;
+
     public double btc1val;
 
     public String link = "";
@@ -99,10 +107,6 @@ public class ActivityStart extends AppCompatActivity
     public String getHash()
     {
         return hash;
-    }
-    public String getLink()
-    {
-        return link;
     }
 
     public String URL_TO_HIT = link;
@@ -143,8 +147,10 @@ public class ActivityStart extends AppCompatActivity
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                if (!refreshing)
+                if (!app.refreshing) {
+                    app.refreshing = true;
                     doItMan();
+                }
             }
         });
 
@@ -170,7 +176,7 @@ public class ActivityStart extends AppCompatActivity
         //ADS
         MobileAds.initialize(this, getResources().getString(R.string.addAppID));
         mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("A36349524CE26B693AF263F8DE5B8159").build();
+        AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
     }
@@ -193,7 +199,8 @@ public class ActivityStart extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         //TODO: on resume clears variables, therfore it always refreshes
-        if (!refreshing) {
+        if (!app.refreshing) {
+            app.refreshing = true;
             doItMan();
         }
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -258,15 +265,14 @@ public class ActivityStart extends AppCompatActivity
             }
         }
     }
-    public void doItMan()
-    {
-        refreshing = true;
+
+    public void doItMan() {
 
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         api = SP.getString("key","");
         sec = SP.getString("secret","");
 
-        if (api != "" && sec !=""){
+        if (api != "" && sec !="" && api.length()!=0&& sec.length()!=0){
             mSwipeRefreshLayout.setRefreshing(true);
             //mProgressBar.setVisibility(View.VISIBLE);
             link = "https://bittrex.com/api/v1.1/account/getbalances?apikey="+api+"&nonce="+System.currentTimeMillis();
@@ -277,7 +283,29 @@ public class ActivityStart extends AppCompatActivity
             mTask = new ActivityStart.JSONTask();
             mTask.execute(URL_TO_HIT);
         }else {
-            Toast.makeText(ActivityStart.this, "No API keys set!", Toast.LENGTH_SHORT).show();
+            if (!up && !avoid){
+                up=true;
+                //Toast.makeText(ActivityStart.this, "Set API key in Settings!", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(ActivityStart.this);
+                i++;
+                builder.setTitle("No API set!");
+                builder.setMessage("Input your API keys in settings.");
+                builder.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        up=false;
+                        Intent i = new Intent(ActivityStart.this.getBaseContext(), ActivityMySettings.class);
+                        ActivityStart.this.startActivity(i);
+                    }
+                });
+                builder.setNegativeButton("Later", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        up=false;
+                        avoid=true;
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
             loadingDone();
         }
     }
@@ -343,7 +371,6 @@ public class ActivityStart extends AppCompatActivity
             BufferedReader reader = null;
             String mojHash = getHash();
 
-
             try {
                 URL url = new URL(params[0]);
                 connection = (HttpURLConnection) url.openConnection();
@@ -367,6 +394,7 @@ public class ActivityStart extends AppCompatActivity
                 Gson gson = new Gson();
                 for(int i=0; i<parentArray.length(); i++) {
                     JSONObject finalObject = parentArray.getJSONObject(i);
+                    Log.d("Json: " ,finalObject.toString());
                     /**
                      * below single line of code from Gson saves you from writing the json parsing yourself
                      * which is commented below
@@ -398,7 +426,7 @@ public class ActivityStart extends AppCompatActivity
                 /*
                 currencyList.clear();
                 currencyList.add(new Currency("XRP", 352.54928105));
-                currencyList.add(new Currency("FUN", 9369.25920683));
+                currencyList.add(new Currency("TRX", 9369.25920683));
                 currencyList.add(new Currency("BTC", 1.93245952));
                 currencyList.add(new Currency("NEO", 45.33295322));
                 currencyList.add(new Currency("ANT", 99.49206810));
@@ -479,6 +507,7 @@ public class ActivityStart extends AppCompatActivity
                             String line3;
                             while ((line3 = bfr.readLine()) != null) {
                                 JSONObject JSo = new JSONObject(line3);
+                                Log.d("Json2: ", JSo.toString());
                                 JSONArray JSarr = JSo.getJSONArray("result");
                                 JSONObject jo = JSarr.getJSONObject(0);
                                 c.setLastPrice(jo.getDouble("Last"));;
@@ -570,13 +599,11 @@ public class ActivityStart extends AppCompatActivity
     }
 
     public static double round(double value, int places) {
-        if (places == 2){
-            DecimalFormat twoDForm = new DecimalFormat("#.##");
-            return Double.valueOf(twoDForm.format(value));
-        }else {
-            DecimalFormat twoDForm = new DecimalFormat("#.########");
-            return Double.valueOf(twoDForm.format(value));
-        }
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     public void loadingDone(){
@@ -585,7 +612,7 @@ public class ActivityStart extends AppCompatActivity
         tvWalletText.setVisibility(View.VISIBLE);
         mRecyclerView.setVisibility(View.VISIBLE);
         inclBalance.setVisibility(View.VISIBLE);
-        refreshing = false;
+        app.refreshing = false;
     }
 
     private void search(SearchView searchView) {

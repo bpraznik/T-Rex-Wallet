@@ -13,31 +13,31 @@ public final class R {
         public static final int adUnitId = 0x7f040024;
     }
     public static final class id {
-        public static final int auto = 0x7f09002a;
+        public static final int auto = 0x7f09002b;
         public static final int center = 0x7f090037;
-        public static final int none = 0x7f090090;
-        public static final int normal = 0x7f090091;
-        public static final int radio = 0x7f09009e;
-        public static final int text = 0x7f0900cf;
-        public static final int text2 = 0x7f0900d0;
-        public static final int toolbar = 0x7f0900e0;
-        public static final int wrap_content = 0x7f0900fc;
+        public static final int none = 0x7f090096;
+        public static final int normal = 0x7f090097;
+        public static final int radio = 0x7f0900a6;
+        public static final int text = 0x7f0900da;
+        public static final int text2 = 0x7f0900db;
+        public static final int toolbar = 0x7f0900eb;
+        public static final int wrap_content = 0x7f09010f;
     }
     public static final class integer {
         public static final int google_play_services_version = 0x7f0a0007;
     }
     public static final class string {
-        public static final int common_google_play_services_unknown_issue = 0x7f0e0029;
-        public static final int s1 = 0x7f0e003a;
-        public static final int s2 = 0x7f0e003b;
-        public static final int s3 = 0x7f0e003c;
-        public static final int s4 = 0x7f0e003d;
-        public static final int s5 = 0x7f0e003e;
-        public static final int s6 = 0x7f0e003f;
-        public static final int s7 = 0x7f0e0040;
+        public static final int common_google_play_services_unknown_issue = 0x7f0d0029;
+        public static final int s1 = 0x7f0d003a;
+        public static final int s2 = 0x7f0d003b;
+        public static final int s3 = 0x7f0d003c;
+        public static final int s4 = 0x7f0d003d;
+        public static final int s5 = 0x7f0d003e;
+        public static final int s6 = 0x7f0d003f;
+        public static final int s7 = 0x7f0d0040;
     }
     public static final class style {
-        public static final int Theme_IAPTheme = 0x7f0f0136;
+        public static final int Theme_IAPTheme = 0x7f0e0139;
     }
     public static final class styleable {
         public static final int[] AdsAttrs = { 0x7f040022, 0x7f040023, 0x7f040024 };

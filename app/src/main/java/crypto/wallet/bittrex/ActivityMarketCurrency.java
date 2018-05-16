@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,7 +65,7 @@ import weka.filters.unsupervised.instance.Randomize;
 public class ActivityMarketCurrency extends AppCompatActivity {
 
     WebView tradeView;
-    TextView tvRecomend;
+    //TextView tvRecomend;
     TextView tvName;
     String ID;
     Bundle extras;
@@ -70,10 +73,17 @@ public class ActivityMarketCurrency extends AppCompatActivity {
     ActivityMarketCurrency ac;
     String currencyName;
     String nameShort;
-    DataPoint recomend = new DataPoint();
+    //DataPoint recomend = new DataPoint();
     Button btnFullScreen;
-    Button btnRecomend;
-    ProgressBar pbRecomend;
+    //Button btnRecomend;
+    //ProgressBar pbRecomend;
+    TextView tvLast;
+    TextView tvHigh;
+    TextView tvLow;
+    View devider1;
+    ConstraintLayout includeLast;
+    ProgressBar pbLast;
+    Currency c;
 
     public ActivityMarketCurrency() throws NoSuchAlgorithmException, SignatureException, InvalidKeyException, UnsupportedEncodingException {
     }
@@ -89,21 +99,31 @@ public class ActivityMarketCurrency extends AppCompatActivity {
         app = (ApplicationMy) getApplication();
         tradeView = findViewById(R.id.chartView);
         extras = getIntent().getExtras();
-        tvRecomend = findViewById(R.id.tvRecomend);
+        //tvRecomend = findViewById(R.id.tvRecomend);
         tvName = findViewById(R.id.tvName);
         btnFullScreen = findViewById(R.id.btnFull);
-        btnRecomend = findViewById(R.id.btnRecomend);
-        pbRecomend = findViewById(R.id.pbRecomend);
-        pbRecomend.setVisibility(View.INVISIBLE);
+        //btnRecomend = findViewById(R.id.btnRecomend);
+        //pbRecomend = findViewById(R.id.pbRecomend);
+        //pbRecomend.setVisibility(View.INVISIBLE);
+
+
+        tvLast = (TextView) findViewById(R.id.tvLast);
+        tvHigh = (TextView) findViewById(R.id.tvHigh);
+        tvLow = (TextView) findViewById(R.id.tvLow);
+        includeLast = findViewById(R.id.includeLast);
+        pbLast = findViewById(R.id.pbLast);
+
         ac = this;
 
+        c = new Currency();
+/*
         btnRecomend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pbRecomend.setVisibility(View.VISIBLE);
                 new JSONTask().execute(URL_TO_HIT);
             }
-        });
+        });*/
 
         btnFullScreen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +143,9 @@ public class ActivityMarketCurrency extends AppCompatActivity {
                 Log.d("Currency ID", extras.getString(DataAll.CURRENCY_ID));
                 currencyName = extras.getString(DataAll.CURRENCY_ID);
                 nameShort = extras.getString("Name");
+                c.setName(nameShort);
                 tvName.setText(nameShort);
+                new GetLast().execute("dd");
                 loadchart();
             } else {
                 System.out.println("Nič ni v extras!");
@@ -133,7 +155,7 @@ public class ActivityMarketCurrency extends AppCompatActivity {
         }
     }
 
-
+/*
     public class JSONTask extends AsyncTask<String,String, ArrayList<DataPoint>> {
 
         @Override
@@ -143,6 +165,7 @@ public class ActivityMarketCurrency extends AppCompatActivity {
 
         @Override
         protected ArrayList<DataPoint> doInBackground(String... params) {
+
             ArrayList<ArrayList<Long>> timestamps = new ArrayList<>();
             Date now = new Date();
 
@@ -232,7 +255,7 @@ public class ActivityMarketCurrency extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                    pbRecomend.setProgress(progress/2);
+                    //pbRecomend.setProgress(progress/2);
                 }
                 if(tmp.getValue() != 0 && tmp.getValueDay() != 0 && tmp.getValueWeek() != 0)
                     historyData.add(tmp);
@@ -438,6 +461,67 @@ public class ActivityMarketCurrency extends AppCompatActivity {
                     e.printStackTrace();
                 }
             } else {}
+        }
+    }
+    */
+    public class GetLast extends AsyncTask<String,String, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            HttpURLConnection connection = null;
+            BufferedReader reader = null;
+
+            try {
+
+                String str="https://bittrex.com/api/v1.1/public/getmarketsummary?market=BTC-"+c.getName();
+                URL url = new URL(str);
+                connection = (HttpURLConnection) url.openConnection();
+                connection.connect();
+                reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String line3;
+                while ((line3 = reader.readLine()) != null) {
+                    JSONObject jsa = new JSONObject(line3);
+                    JSONArray jsa2 = jsa.getJSONArray("result");
+                    JSONObject jo = jsa2.getJSONObject(0);
+                    c.setLast(jo.getDouble("Last"));
+                    c.setLow(jo.getDouble("Low"));
+                    c.setHigh(jo.getDouble("High"));
+                }
+                return "DONE";
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+
+            } finally {
+                if(connection != null) {
+                    connection.disconnect();
+                }
+                try {
+                    if(reader != null) {
+                        reader.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String o) {
+            super.onPostExecute(o);
+            if (o != null){
+                DecimalFormat df = new DecimalFormat("0.00000000");
+                includeLast.setVisibility(View.VISIBLE);
+                pbLast.setProgress((int) Math.floor((100-0)/(c.getHigh()-c.getLow())*(c.getLast()-c.getHigh())+100));
+                tvLast.setText("Last:\n" + df.format(c.getLast()));
+                tvHigh.setText("High:\n" + df.format(c.getHigh()));
+                tvLow.setText("Low:\n" + df.format(c.getLow()));
+            }
         }
     }
 

@@ -3,6 +3,7 @@ package crypto.wallet.bittrex;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.constraint.ConstraintLayout;
@@ -25,6 +26,10 @@ import android.view.MenuItem;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,6 +39,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -60,6 +67,7 @@ public class ActivityMarket extends AppCompatActivity
     ConstraintLayout mConstraintLayout;
     ApplicationMy app;
     SearchView searchView;
+    AdView mAdView;
     private RecyclerView.LayoutManager mLayoutManager;
 
     public ArrayList<Currency> currencyList = new ArrayList<>();
@@ -132,6 +140,13 @@ public class ActivityMarket extends AppCompatActivity
             }
         });
 
+
+        //ADS
+        MobileAds.initialize(this, getResources().getString(R.string.addAppID));
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         doItMan();
     }
 
@@ -179,9 +194,6 @@ public class ActivityMarket extends AppCompatActivity
     public void doItMan()
     {
         refreshing = true;
-        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        api = SP.getString("key","");
-        sec = SP.getString("secret","");
 
         mSwipeRefreshLayout.setRefreshing(true);
         link = "https://api.coinmarketcap.com/v1/ticker/?limit=300";
@@ -204,19 +216,25 @@ public class ActivityMarket extends AppCompatActivity
                 Collections.sort(currencyList, Currency.By_Name_Alphabeticaly);
                 break;
             case R.id.alphaDesc:
-                Collections.sort(currencyList, Currency.By_Name_Alphabeticaly.reversed());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    Collections.sort(currencyList, Currency.By_Name_Alphabeticaly.reversed());
+                }
                 break;
             case R.id.valAsc:
                 Collections.sort(currencyList, Currency.By_Value);
                 break;
             case R.id.valDesc:
-                Collections.sort(currencyList, Currency.By_Value.reversed());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    Collections.sort(currencyList, Currency.By_Value.reversed());
+                }
                 break;
             case R.id.changeAsc:
                 Collections.sort(currencyList, Currency.By_Change);
                 break;
             case R.id.changeDesc:
-                Collections.sort(currencyList, Currency.By_Change.reversed());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    Collections.sort(currencyList, Currency.By_Change.reversed());
+                }
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -341,7 +359,7 @@ public class ActivityMarket extends AppCompatActivity
             loadingDone();
         }
     }
-
+/*
     public static double round(double value, int places) {
         if (places == 2){
             DecimalFormat twoDForm = new DecimalFormat("#.##");
@@ -350,6 +368,13 @@ public class ActivityMarket extends AppCompatActivity
             DecimalFormat twoDForm = new DecimalFormat("#.########");
             return Double.valueOf(twoDForm.format(value));
         }
+    }*/
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     public void loadingDone(){
