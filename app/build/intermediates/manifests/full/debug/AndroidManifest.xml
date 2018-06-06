@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="crypto.wallet.bittrex"
+    package="currency.crypto.wallet"
     android:versionCode="5"
     android:versionName="1.1.3" >
 
@@ -25,10 +25,10 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission
-        android:name="crypto.wallet.bittrex.permission.C2D_MESSAGE"
+        android:name="currency.crypto.wallet.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="crypto.wallet.bittrex.permission.C2D_MESSAGE" />
+    <uses-permission android:name="currency.crypto.wallet.permission.C2D_MESSAGE" />
     <!--
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
@@ -37,7 +37,7 @@
     <uses-feature android:name="android.hardware.sensor.accelerometer" />
     -->
     <application
-        android:name="crypto.wallet.bittrex.ApplicationMy"
+        android:name="currency.crypto.wallet.util.ApplicationMy"
         android:allowBackup="true"
         android:debuggable="true"
         android:icon="@drawable/iconapp"
@@ -47,7 +47,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="crypto.wallet.bittrex.ActivitySplash"
+            android:name="currency.crypto.wallet.ActivitySplash"
             android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,30 +55,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="crypto.wallet.bittrex.ActivityCurrency" />
+        <activity android:name="currency.crypto.wallet.ActivityCurrency" />
         <activity
-            android:name="crypto.wallet.bittrex.ActivityMySettings"
+            android:name="currency.crypto.wallet.ActivityMySettings"
             android:label="@string/action_settings" />
         <activity
-            android:name="crypto.wallet.bittrex.ActivityStart"
+            android:name="currency.crypto.wallet.ActivityStart"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name="crypto.wallet.bittrex.ActivityAbout" />
+        <activity android:name="currency.crypto.wallet.ActivityAbout" />
         <activity
-            android:name="crypto.wallet.bittrex.ActivityOrders"
+            android:name="currency.crypto.wallet.ActivityOrders"
             android:label="@string/title_activity_orders"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="crypto.wallet.bittrex.ActivityMarket"
+            android:name="currency.crypto.wallet.ActivityMarket"
             android:label="@string/title_activity_market"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="crypto.wallet.bittrex.ActivityMarketCurrency"
+            android:name="currency.crypto.wallet.ActivityMarketCurrency"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="crypto.wallet.bittrex.ActivityChart"
+            android:name="currency.crypto.wallet.ActivityChart"
             android:label="@string/title_activity_chart"
             android:theme="@style/AppTheme.NoActionBar" />
 
@@ -123,7 +123,7 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="crypto.wallet.bittrex" />
+                <category android:name="currency.crypto.wallet" />
             </intent-filter>
         </receiver>
         <!--
@@ -140,7 +140,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="crypto.wallet.bittrex.firebaseinitprovider"
+            android:authorities="currency.crypto.wallet.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
 

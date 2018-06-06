@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:214649805463:android:787451aff1df8635",
         "android_client_info": {
-          "package_name": "crypto.wallet.bittrex"
+          "package_name": "currency.crypto.wallet"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "214649805463-2pfd5398fb7lf706epafka8p0grb6p59.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "crypto.wallet.bittrex",
+            "package_name": "currency.crypto.wallet",
             "certificate_hash": "56d18103775594f14e69f2f98d6bce378c8da32c"
           }
         },

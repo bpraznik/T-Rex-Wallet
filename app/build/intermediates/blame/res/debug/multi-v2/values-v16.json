@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Bor\\StudioProjects\\Bit-Trex\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "C:\\Users\\Bor\\StudioProjects\\T-Rex-Wallet\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\ef86811fc5114fff82f9a42cc0d8bf34\\res\\values-v16\\values-v16.xml",

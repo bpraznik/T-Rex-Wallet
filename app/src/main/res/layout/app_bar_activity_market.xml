@@ -5,7 +5,7 @@
     android:id="@+id/coordinatorLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="crypto.wallet.bittrex.ActivityMarket">
+    tools:context="currency.crypto.wallet.ActivityMarket">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout2"

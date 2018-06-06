@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightGray"
-    tools:context="crypto.wallet.bittrex.ActivityStart">
+    tools:context="currency.crypto.wallet.ActivityStart">
 
 
     <android.support.design.widget.AppBarLayout

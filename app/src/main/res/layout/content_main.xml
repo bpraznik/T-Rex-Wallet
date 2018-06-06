@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/lightGray"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="crypto.wallet.bittrex.ActivityStart"
+    tools:context="currency.crypto.wallet.ActivityStart"
     tools:showIn="@layout/activity_start">
 
     <android.support.v4.widget.SwipeRefreshLayout

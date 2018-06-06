@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Bit-Trex.iml" filepath="$PROJECT_DIR$/.idea/modules/Bit-Trex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T-Rex-Wallet.iml" filepath="$PROJECT_DIR$/T-Rex-Wallet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_data/lib_data.iml" filepath="$PROJECT_DIR$/lib_data/lib_data.iml" />
     </modules>

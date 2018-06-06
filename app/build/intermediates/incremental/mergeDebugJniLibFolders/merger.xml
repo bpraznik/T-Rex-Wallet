@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\Bor\StudioProjects\Bit-Trex\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Users\Bor\StudioProjects\Bit-Trex\app\src\debug\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\Bor\StudioProjects\T-Rex-Wallet\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Users\Bor\StudioProjects\T-Rex-Wallet\app\src\debug\jniLibs"/></dataSet></merger>

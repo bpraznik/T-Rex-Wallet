@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Bor\\StudioProjects\\Bit-Trex\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bn\\values-bn.xml",
+            "outputFile": "C:\\Users\\Bor\\StudioProjects\\T-Rex-Wallet\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bn\\values-bn.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\6fde9e5f15a6c4dfc80acc3089087acf\\res\\values-bn\\values.xml",
