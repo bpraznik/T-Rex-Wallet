@@ -10,10 +10,14 @@
     <string name="app_version">T-rex Wallet version 1.1</string>
     <string name="copiright">© 2017 BP_dev</string>
 
-    <string name="addAppID">ca-app-pub-6319696292223693~5728720128</string>
 
-    <string name="StartPageBottomBanner">ca-app-pub-6319696292223693/3318179207</string>
-    <string name="CurrencyPageBottomBanner">ca-app-pub-6319696292223693/7037932368</string>
+    <string name="addAppID">ca-app-pub-6319696292223693~7181478538</string>
+    <string name="StartPageBottomBanner">ca-app-pub-6319696292223693/6486918935</string>
+    <string name="MarketPageBottomBanner">ca-app-pub-6319696292223693/7345130060</string>
+    <string name="CurrencyPageBottomBanner">ca-app-pub-6319696292223693/4898505093</string>
+    <string name="MarketCurrencyPageBottomBanner">ca-app-pub-6319696292223693/2771460237</string>
+
+
     <string name="title_activity_market">T-rex Market</string>
     <string name="title_activity_test">ActivityTest</string>
 
@@ -24,6 +28,8 @@
     <string name="tab_text_1">30 min</string>
     <string name="tab_text_2">1 day</string>
     <string name="tab_text_3">7 day</string>
+    <string name="appwidget_text">ERROR</string>
+    <string name="add_widget">Add widget</string>
 
 
     <!--

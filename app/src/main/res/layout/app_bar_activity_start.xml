@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightGray"
-    tools:context="currency.crypto.wallet.ActivityStart">
+    tools:context="currency.crypto.wallet.ui.activities.ActivityStart">
 
 
     <android.support.design.widget.AppBarLayout
@@ -35,8 +35,6 @@
                 android:maxWidth="200dp" />
 
         </android.support.v7.widget.Toolbar>
-
-
     </android.support.design.widget.AppBarLayout>
 
     <include
@@ -60,7 +58,6 @@
         app:layout_anchorGravity="bottom|center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
-
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

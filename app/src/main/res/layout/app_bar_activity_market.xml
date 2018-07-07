@@ -5,7 +5,7 @@
     android:id="@+id/coordinatorLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="currency.crypto.wallet.ActivityMarket">
+    tools:context="currency.crypto.wallet.ui.activities.ActivityMarket">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout2"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:background="@color/cardview_light_background"
         app:adSize="BANNER"
-        app:adUnitId="@string/CurrencyPageBottomBanner"
+        app:adUnitId="@string/MarketPageBottomBanner"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="bottom|center"
         app:layout_constraintBottom_toBottomOf="parent"

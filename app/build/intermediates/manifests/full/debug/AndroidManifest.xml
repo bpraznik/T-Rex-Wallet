@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="currency.crypto.wallet"
     android:versionCode="5"
-    android:versionName="1.1.3" >
+    android:versionName="1.1.4" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -37,7 +37,7 @@
     <uses-feature android:name="android.hardware.sensor.accelerometer" />
     -->
     <application
-        android:name="currency.crypto.wallet.util.ApplicationMy"
+        android:name="currency.crypto.wallet.data.ApplicationMy"
         android:allowBackup="true"
         android:debuggable="true"
         android:icon="@drawable/iconapp"
@@ -45,9 +45,10 @@
         android:noHistory="false"
         android:roundIcon="@drawable/iconapp"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="currency.crypto.wallet.ActivitySplash"
+            android:name="currency.crypto.wallet.ui.activities.ActivitySplash"
             android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,32 +56,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="currency.crypto.wallet.ActivityCurrency" />
+        <activity android:name="currency.crypto.wallet.ui.activities.ActivityCurrency" />
         <activity
-            android:name="currency.crypto.wallet.ActivityMySettings"
+            android:name="currency.crypto.wallet.ui.activities.ActivityMySettings"
             android:label="@string/action_settings" />
         <activity
-            android:name="currency.crypto.wallet.ActivityStart"
+            android:name="currency.crypto.wallet.ui.activities.ActivityStart"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name="currency.crypto.wallet.ActivityAbout" />
+        <activity android:name="currency.crypto.wallet.ui.activities.ActivityAbout" />
         <activity
-            android:name="currency.crypto.wallet.ActivityOrders"
+            android:name="currency.crypto.wallet.ui.activities.ActivityOrders"
             android:label="@string/title_activity_orders"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="currency.crypto.wallet.ActivityMarket"
+            android:name="currency.crypto.wallet.ui.activities.ActivityMarket"
             android:label="@string/title_activity_market"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="currency.crypto.wallet.ActivityMarketCurrency"
+            android:name="currency.crypto.wallet.ui.activities.ActivityMarketCurrency"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="currency.crypto.wallet.ActivityChart"
+            android:name="currency.crypto.wallet.ui.activities.ActivityChart"
             android:label="@string/title_activity_chart"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver android:name="currency.crypto.wallet.ui.widgets.WidgetNetValue" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_net_value_info" />
+        </receiver>
 
         <meta-data
             android:name="android.support.VERSION"

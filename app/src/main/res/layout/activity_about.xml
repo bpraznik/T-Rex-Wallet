@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="currency.crypto.wallet.ActivityAbout">
+    tools:context="currency.crypto.wallet.ui.activities.ActivityAbout">
 
     <ImageView
         android:id="@+id/imageView2"

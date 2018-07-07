@@ -8,17 +8,10 @@
             android:id="@+id/nav_wallet"
             android:icon="@drawable/ic_money"
             android:title="Wallet" />
-
         <item
             android:id="@+id/nav_market"
             android:icon="@drawable/ic_orders"
             android:title="Market" />
-        <!--
-        <item
-            android:id="@+id/nav_suggest"
-            android:icon="@drawable/ic_suggestions"
-            android:title="Suggestions" />
-            -->
     </group>
 
     <item android:title="Tools">
@@ -33,5 +26,4 @@
                 android:title="About" />
         </menu>
     </item>
-
 </menu>

@@ -4,24 +4,24 @@
             "outputFile": "C:\\Users\\Bor\\StudioProjects\\T-Rex-Wallet\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mr\\values-mr.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-ads-11.6.0.aar\\c8d76f7fe15d19323250ffdf8bec96e6\\res\\values-mr\\values.xml",
+                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\c3e05377f2730ba67000fdcf9a1ef91e\\res\\values-mr\\values.xml",
                     "from": {
-                        "startLines": "4,5,6,7,8,9,10",
-                        "startColumns": "0,0,0,0,0,0,0",
-                        "startOffsets": "237,309,431,497,564,646,760",
-                        "endColumns": "71,121,65,66,81,113,70",
-                        "endOffsets": "308,430,496,563,645,759,830"
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "201",
+                        "endOffsets": "486"
                     },
                     "to": {
-                        "startLines": "22,23,24,25,26,27,28",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "2273,2349,2475,2545,2616,2702,2820",
-                        "endColumns": "75,125,69,70,85,117,74",
-                        "endOffsets": "2344,2470,2540,2611,2697,2815,2890"
+                        "startLines": "21",
+                        "startColumns": "4",
+                        "startOffsets": "2071",
+                        "endColumns": "201",
+                        "endOffsets": "2268"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\301ba4cdc5f5f40a509f8f030027eea6\\res\\values-mr\\values-mr.xml",
+                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\dbe894425900f8bd3d6be037a784fa9e\\res\\values-mr\\values-mr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,20 +38,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\6fde9e5f15a6c4dfc80acc3089087acf\\res\\values-mr\\values.xml",
+                    "source": "C:\\Users\\Bor\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-ads-11.6.0.aar\\bb829927aaa71071d7e540ab3a06ba42\\res\\values-mr\\values.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "285",
-                        "endColumns": "201",
-                        "endOffsets": "486"
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "0,0,0,0,0,0,0",
+                        "startOffsets": "237,309,431,497,564,646,760",
+                        "endColumns": "71,121,65,66,81,113,70",
+                        "endOffsets": "308,430,496,563,645,759,830"
                     },
                     "to": {
-                        "startLines": "21",
-                        "startColumns": "4",
-                        "startOffsets": "2071",
-                        "endColumns": "201",
-                        "endOffsets": "2268"
+                        "startLines": "22,23,24,25,26,27,28",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "2273,2349,2475,2545,2616,2702,2820",
+                        "endColumns": "75,125,69,70,85,117,74",
+                        "endOffsets": "2344,2470,2540,2611,2697,2815,2890"
                     }
                 }
             ]
