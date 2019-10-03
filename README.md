@@ -21,6 +21,4 @@ Disclaimer:
 ![API generation](app/src/main/res/drawable/img1.png "API generation") 
 
 # Promo video
-
 https://www.youtube.com/watch?v=qRdjfZ07NB4
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qRdjfZ07NB4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
